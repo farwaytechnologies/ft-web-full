@@ -1,0 +1,126 @@
+/* Main Wrapper */
+.courses-dropdown-wrapper {
+  padding: 4rem 4rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  max-width:100%;
+  margin: auto;
+}
+
+/* Flex Container for Header and Cards */
+.courses-dropdown-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Header Section (Left) */
+.courses-dropdown-header {
+  flex: 1;
+  max-width: 400px;
+}
+
+.courses-dropdown-header h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.courses-dropdown-header p {
+  color: #cccccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 100;
+}
+
+/* Card Section (Right) */
+.courses-dropdown-card-row {
+  flex: 2;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;          /* keep cards in one row */
+  overflow-x: auto;           /* enable horizontal scroll */
+  padding-bottom: 0.5rem;     /* space for scrollbar */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+/* Optional: style scrollbar for WebKit */
+.courses-dropdown-card-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.courses-dropdown-card-row::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1px;
+}
+
+.courses-dropdown-card-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Card Link Wrapper */
+.courses-dropdown-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Individual Card */
+.courses-dropdown-card {
+  background-color: #ffffff00;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 5px;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;  /* prevent shrinking */
+}
+
+.courses-dropdown-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* Image Styling */
+.courses-dropdown-image {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Title in Card */
+.courses-dropdown-card h3 {
+  font-size: 12px;
+  margin: 0.5rem 0;
+  font-weight: 100;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .courses-dropdown-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .courses-dropdown-header {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .courses-dropdown-card-row {
+    justify-content: flex-start; /* scrollable so no centering */
+    width: 100%;
+  }
+
+  .courses-dropdown-card {
+    width: 180px; /* slightly smaller on small screens */
+  }
+}

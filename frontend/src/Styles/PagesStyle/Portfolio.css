@@ -1,0 +1,354 @@
+/* Portfolio.css - Professional Black Theme - Compact Cards */
+
+.portfolio-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.portfolio-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.portfolio-subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Projects Grid - Column Layout */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.project-card {
+  background: #111111;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333333;
+  width: 100%;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  min-height: 300px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+  border-color: #555555;
+}
+
+.project-image {
+  width: 300px;
+  min-width: 300px;
+  background: linear-gradient(135deg, #333333 0%, #555555 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.project-icon {
+  font-size: 4rem;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.project-content {
+  padding: 2rem;
+  display: flex;
+  flex: 1;
+  gap: 2rem;
+}
+
+.project-main-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-header {
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.project-category {
+  color: #cccccc;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-description {
+  color: #cccccc;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: #222222;
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid #444444;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: #333333;
+  border-color: #666666;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.project-features {
+  min-width: 280px;
+  padding-left: 2rem;
+  border-left: 1px solid #333333;
+}
+
+.project-features h4 {
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+  color: #cccccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.project-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+
+/* Stats Section - Black Theme */
+.portfolio-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #111111 0%, #222222 100%);
+  border-radius: 15px;
+  border: 1px solid #333333;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  color: #cccccc;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+/* CTA Section - Professional Black Theme */
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #111111;
+  border-radius: 15px;
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #cccccc;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .project-features {
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 992px) {
+  .project-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .project-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .project-features {
+    min-width: auto;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #333333;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 1rem;
+  }
+  
+  .portfolio-heading {
+    font-size: 2.5rem;
+  }
+  
+  .projects-grid {
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    max-width: 100%;
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+  
+  .portfolio-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-heading {
+    font-size: 2rem;
+  }
+  
+  .portfolio-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-features li {
+    font-size: 0.85rem;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+}

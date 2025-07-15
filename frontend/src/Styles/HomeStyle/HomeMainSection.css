@@ -1,0 +1,104 @@
+.home-main-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background video styling */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Wrapper to center content vertically */
+.overlay-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.overlay-content {
+  max-width: 700px;
+  text-align: left;
+}
+
+.overlay-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.overlay-content p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+
+  .overlay-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .overlay-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay-wrapper {
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .overlay-content {
+    text-align: center;
+  }
+
+  .overlay-content h1 {
+    font-size: 2rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-main-section{
+    height: 100vh;
+  }
+  .overlay-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+  }
+
+  .uni-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}

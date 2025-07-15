@@ -1,0 +1,145 @@
+.home-course-section {
+  position: relative;
+  background: linear-gradient(
+  135deg,
+  #1b3d65,   /* Deep metallic base */
+  #275D8C,   /* Primary color */
+  #3a6fae,   /* Lighter highlight */
+  #467fc3,   /* Gloss edge */
+  #2c5f91,   /* Return to depth */
+  #1b3d65    /* Final shadow tone */
+);
+
+
+  min-height: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.home-course-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.home-course-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
+  margin: 0 auto;
+}
+
+.home-course-heading {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.home-course-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  margin-left: 0.5rem;
+}
+
+.home-course-cards-container {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2rem;
+}
+
+.home-course-cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.home-course-cards-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.home-course-cards-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.home-course-card {
+  flex: 0 0 23%;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgb(148, 150, 151);
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, #0a0f1a, #10243d, #1e3a5f); 
+}
+
+.home-course-card:hover {
+  transform: translateY(-3px);
+}
+
+/* COMMENTED OUT IMAGE STYLES - USING BG COLORS INSTEAD */
+/*
+.home-course-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.home-course-card:hover .home-course-card-image {
+  transform: scale(1.05);
+}
+*/
+
+.home-course-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+}
+
+.home-course-card-content h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+  .home-course-card {
+    flex: 0 0 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-course-card {
+    flex: 0 0 70%;
+  }
+}

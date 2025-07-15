@@ -1,0 +1,90 @@
+
+
+/* PagesCard.css */
+.pages-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pages-card-overlay {
+  background-color: rgba(0, 0, 0, 0.361);
+  backdrop-filter: blur(0px);
+  padding: 2rem;
+  height: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.pages-card-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  text-align: left;
+}
+
+.pages-card-description {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pages-card {
+    min-height: 200px;
+  }
+  
+  .pages-card-overlay {
+    padding: 1.5rem;
+    min-height: 200px;
+  }
+  
+  .pages-card-heading {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .pages-card-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pages-card {
+    min-height: 180px;
+   
+  }
+  
+  .pages-card-overlay {
+    padding: 1.25rem;
+    min-height: 180px;
+  }
+  
+  .pages-card-heading {
+    font-size: 1.25rem;
+   
+  }
+  
+  .pages-card-description {
+    font-size: 0.95rem;
+  }
+}

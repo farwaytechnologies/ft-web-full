@@ -1,0 +1,179 @@
+.home-whyus-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+/* Background Video */
+.whyus-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Foreground Container */
+.home-whyus-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+}
+
+/* Main Content */
+.home-whyus-content {
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Layout Grid */
+.whyus-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Left Column */
+.whyus-left {
+  padding-right: 2rem;
+}
+
+.whyus-left h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.whyus-left p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* Right Column */
+.whyus-right {
+  padding-left: 2rem;
+}
+
+/* Feature List */
+.whyus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.whyus-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.whyus-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Icons */
+.item-icon {
+  font-size: 1.5rem;
+  min-width: 30px;
+  color: #ffffff;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+/* Feature Text */
+.item-content h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.item-content p {
+  font-size: 1rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-whyus-section {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .home-whyus-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .whyus-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .whyus-left,
+  .whyus-right {
+    padding: 0;
+  }
+
+  .whyus-left h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .whyus-left p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .whyus-left .uni-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .whyus-list {
+    gap: 1.5rem;
+  }
+
+  .whyus-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .item-icon {
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .item-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .item-content p {
+    font-size: 0.95rem;
+  }
+}

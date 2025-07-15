@@ -1,0 +1,68 @@
+/* CaseStudyPage.css */
+
+.casestudypage-wrapper {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.casestudypage-container {
+background: linear-gradient(
+  135deg,
+  #0a0f12,
+  #082d3d,
+  #0e1a24,
+  #1a2f3b,
+  #0b1c26
+);
+
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.casestudypage-error {
+  text-align: center;
+  padding: 40px;
+  border: 1px solid #444;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  max-width: 500px;
+  width: 90%;
+}
+
+.casestudypage-error-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.casestudypage-error-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.casestudypage-error-description {
+  font-size: 16px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.casestudypage-error-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.casestudypage-error-button:hover {
+  background-color: #ddd;
+}

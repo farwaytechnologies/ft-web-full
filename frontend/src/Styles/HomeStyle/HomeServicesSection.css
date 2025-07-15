@@ -1,0 +1,183 @@
+.home-services-section {
+  position: relative;
+  background: linear-gradient(135deg, #000000, #172d34, #000000);
+  min-height: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Image */
+.home-services-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Content Overlay */
+.home-services-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
+  margin: 0 auto;
+}
+
+.home-services-heading {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.home-services-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  margin-left: 0.5rem;
+}
+
+/* Cards Container - horizontal scroll */
+.home-services-cards-container {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2rem;
+}
+
+/* Scrollbar styling */
+.home-services-cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.home-services-cards-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.home-services-cards-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Card Styles */
+.home-services-card {
+  flex: 0 0 23%; /* Fix width to show 4 cards in container */
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(148, 150, 151);
+  transition: transform 0.3s ease;
+ background: linear-gradient(135deg,
+  #050505,
+  #101820,
+  #1a2e35,
+  #274156,
+  #0c1117
+);
+}
+
+.home-services-card:hover {
+  transform: translateY(-3px);
+}
+
+/* COMMENTED OUT IMAGE STYLES - USING BG COLORS INSTEAD */
+/* Image styles */
+/*
+.home-services-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+*/
+
+/* Optional: Add a subtle zoom effect on hover */
+/*
+.home-services-card:hover .home-services-card-image {
+  transform: scale(1.05);
+}
+*/
+
+/* Card content alignment */
+.home-services-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 1.5rem;
+  text-align: left;
+  /* Gradient overlay for better text readability */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+}
+
+.home-services-card-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.home-services-card-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 992px) {
+  /* Show 3 cards on tablets */
+  .home-services-cards-container {
+    gap: 1rem;
+  }
+  .home-services-card {
+    flex: 0 0 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Show ~1.5 cards on mobile */
+  .home-services-cards-container {
+    gap: 0.75rem;
+  }
+  .home-services-card {
+    flex: 0 0 70%;
+  }
+  
+  .home-services-card-content {
+    padding: 1.2rem;
+  }
+  
+  .home-services-card-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .home-services-card-content p {
+    font-size: 0.9rem;
+  }
+}

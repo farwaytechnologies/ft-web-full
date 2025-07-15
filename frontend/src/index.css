@@ -1,0 +1,48 @@
+/* index.css or App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+/* Global font weight reduction */
+* {
+  font-weight: 300 !important; /* Light weight */
+}
+
+/* Or more specific targeting */
+body, h1, h2, h3, h4, h5, h6, p, span, div, a {
+  font-weight: 300 !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Button */
+.uni-button {
+  background: transparent;
+  color: #e0e0e0; /* soft light-gray, works on both bgs */
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* subtle border */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.uni-button:hover {
+  background: rgba(255, 255, 255, 0.05); /* subtle light overlay on hover */
+  transform: translateY(-2px);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+/* src/Styles/variables.css */
+:root {
+  --primary-color: #275D8C;
+  /* You can add more variables here if needed */
+}
