@@ -22,7 +22,7 @@ const AdminDashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
     localStorage.removeItem('adminInfo');
-    navigate('/admin/auth');
+    navigate('/admin/login');
   };
 
   return (
