@@ -91,6 +91,8 @@ function Navbar() {
         <li><Link to="/about">About</Link></li>
         <li><Link to="/careers">Careers</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/admin/login">Login</Link></li>
+
       </ul>
 
       {mobileMenuOpen && (

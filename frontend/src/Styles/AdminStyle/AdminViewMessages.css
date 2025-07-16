@@ -1,0 +1,53 @@
+.admin-messages-container {
+  padding: 40px;
+  background-color: #4a7abe;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 5rem;
+}
+
+.admin-messages-container h2 {
+  margin-bottom: 20px;
+  color: #e6e6e6;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.delete-btn {
+  margin-top: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}

@@ -44,7 +44,7 @@ const AdminDashboard = () => {
           <Link to="/admin/manage-blog"><FaBlog /> Blog</Link>
           <Link to="/admin/manage-about"><FaInfoCircle /> About</Link>
           <Link to="/admin/manage-careers"><FaBriefcase /> Careers</Link>
-          <Link to="/admin/manage-contact"><FaEnvelope /> Contact</Link>
+          <Link to="/admin/messages"><FaEnvelope /> Contact</Link>
         </nav>
 
         <button onClick={handleLogout} className="admin-dashboard-logout-btn">
