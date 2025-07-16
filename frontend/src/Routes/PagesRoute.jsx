@@ -11,6 +11,8 @@ import Careers from '../Pages/Careers';
 import Blog from '../Pages/blog';
 import ApplicationForm from '../Pages/ApplicationForm';
 import CaseStudyPage from '../Pages/CaseStudyPage'; // ✅ new import
+import AdminAuth from '../Admin/AdminAuth';
+import AdminDashboard from '../Admin/AdminDashboard';
 
 function PagesRoutes() {
   return (
@@ -27,6 +29,11 @@ function PagesRoutes() {
       
       {/* ✅ Dynamic Case Study Route */}
       <Route path="/case-study/:id" element={<CaseStudyPage />} />
+
+
+      <Route path="/admin/login" element={<AdminAuth />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
     </Routes>
   );
 }

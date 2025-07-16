@@ -1,0 +1,63 @@
+.admin-auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #4a7abe;
+}
+
+.admin-auth-box {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(74, 122, 190, 0.1);
+  width: 350px;
+}
+
+.admin-auth-box h2 {
+  text-align: center;
+  color: #4a7abe;
+  margin-bottom: 1.5rem;
+}
+
+.admin-auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-auth-form input {
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline-color: #4a7abe;
+}
+
+.admin-auth-button {
+  background-color: #4a7abe;
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-auth-button:hover {
+  background-color: #3a68a0;
+}
+
+.admin-auth-toggle {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.admin-auth-toggle span {
+  color: #4a7abe;
+  font-weight: 500;
+  margin-left: 5px;
+  cursor: pointer;
+}
