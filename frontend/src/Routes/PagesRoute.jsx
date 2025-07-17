@@ -14,6 +14,7 @@ import CaseStudyPage from '../Pages/CaseStudyPage'; // ✅ new import
 import AdminAuth from '../Admin/AdminAuth';
 import AdminDashboard from '../Admin/AdminDashboard';
 import AdminViewMessages from '../Admin/AdminViewMessages';
+import AdminManageServices from '../Admin/AdminManageServices';
 
 function PagesRoutes() {
   return (
@@ -35,6 +36,7 @@ function PagesRoutes() {
       <Route path="/admin/login" element={<AdminAuth />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/messages" element={<AdminViewMessages />} />
+      <Route path="/admin/services" element={<AdminManageServices />} />
 
 
     </Routes>

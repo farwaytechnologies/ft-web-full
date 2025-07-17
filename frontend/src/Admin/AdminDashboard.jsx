@@ -38,7 +38,7 @@ const AdminDashboard = () => {
 
         <nav className="admin-dashboard-nav">
           <Link to="/admin/manage-home"><FaHome /> Home</Link>
-          <Link to="/admin/manage-services"><FaTools /> Services</Link>
+          <Link to="/admin/services"><FaTools /> Services</Link>
           <Link to="/admin/manage-courses"><FaBook /> Courses</Link>
           <Link to="/admin/manage-portfolio"><FaImages /> Portfolio</Link>
           <Link to="/admin/manage-blog"><FaBlog /> Blog</Link>

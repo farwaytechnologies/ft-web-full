@@ -1,0 +1,100 @@
+.admin-service-page {
+  min-height: 100vh;
+  background-color: #4e9ffc;
+  padding: 40px 40px;
+}
+
+.admin-service-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.admin-service-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.admin-service-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.admin-service-form input,
+.admin-service-form textarea {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.admin-service-form button {
+  background-color: #4a7abe;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-service-form button:hover {
+  background-color: #3a6aad;
+}
+
+.admin-service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.admin-service-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.admin-service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.admin-service-info {
+  padding: 15px;
+}
+
+.admin-service-info h3 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.admin-service-info p {
+  font-size: 14px;
+  color: #555;
+}
+
+.admin-service-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.admin-service-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #4a7abe;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-service-actions button:hover {
+  background: #375f97;
+}

@@ -1,18 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import '../Styles/ComponentsStyle/ServicesDropdown.css';
 
 function ServicesDropdown() {
-  const services = [
-    { name: 'Computer Hardware & Networking', path: '/services/website-design' },
-    { name: 'App Development', path: '/services/website-design' },
-    { name: 'Web Development', path: '/services/portfolio-design' },
-    { name: 'Web Design', path: '/services/digital-marketing' },
-    { name: 'UI / UX Design', path: '/services/digital-marketing' },
-    { name: 'Branding', path: '/services/digital-marketing' },
-    { name: 'Digital Marketing', path: '/services/digital-marketing' },
-    { name: 'Cybersecurity', path: '/services/e-commerce-website' }
-  ];
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/services')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Fetched services:', data); // Log the full data
+        setServices(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch services:', err);
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="services-dropdown-container">
@@ -22,16 +32,28 @@ function ServicesDropdown() {
           Discover our diverse range of cutting-edge services designed to accelerate your business growth. We leverage the latest technologies to deliver innovative solutions — all at highly affordable prices tailored to suit your needs.
         </p>
       </div>
+
       <div className="services-dropdown-list-wrapper">
-        <ul className="services-dropdown-list">
-          {services.map((service, index) => (
-            <li key={index} className="services-dropdown-list-item">
-              <Link to={service.path} className="services-dropdown-link">
-                {service.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {loading ? (
+          <p style={{ color: '#fff' }}>Loading services...</p>
+        ) : error ? (
+          <p style={{ color: 'red' }}>Error loading services</p>
+        ) : services.length === 0 ? (
+          <p style={{ color: '#ccc' }}>No services found</p>
+        ) : (
+          <ul className="services-dropdown-list">
+            {services.map((service, index) => {
+              console.log('Service item:', service); // Log each item
+              return (
+                <li key={service._id || index} className="services-dropdown-list-item">
+                  <div className="services-dropdown-link">
+                    {service.name || service.title || 'Unnamed Service'}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </div>
   );
