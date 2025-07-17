@@ -1,48 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/PagesStyle/Courses.css';
 
 import PagesCard from '../Components/PagesCard';
 import bgImage from '../assets/Image/Card-bg.jpg';
 
-// Sample course images
-import img1 from '../assets/Image/cpmpu.jpg';
-import img2 from'../assets/Image/cpmpu.jpg';
-import img3 from '../assets/Image/cpmpu.jpg';
-import img4 from'../assets/Image/cpmpu.jpg';
-
-const courses = [
-  {
-    name: 'Full Stack Web Development',
-    path: '/courses/full-stack-web-development',
-    description:
-      'Learn to build complete web applications from frontend to backend using popular technologies like React, Node.js, and MongoDB.',
-    image: img1,
-  },
-  {
-    name: 'Data Science & Machine Learning',
-    path: '/courses/data-science-machine-learning',
-    description:
-      'Master data analysis, visualization, and machine learning using Python, Pandas, and Scikit-learn with real-world datasets.',
-    image: img2,
-  },
-  {
-    name: 'Digital Marketing',
-    path: '/courses/digital-marketing',
-    description:
-      'Understand SEO, social media strategies, PPC, and analytics to grow businesses online effectively.',
-    image: img3,
-  },
-  {
-    name: 'React Js',
-    path: '/courses/ui-ux-design',
-    description:
-      'Build dynamic and responsive UIs with React.js, hooks, context API, and master modern frontend development.',
-    image: img4,
-  },
-];
-
 function Courses() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch('http://localhost:8000/api/courses');
+        const data = await res.json();
+        setCourses(data);
+      } catch (error) {
+        console.error('Failed to fetch courses:', error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
   return (
     <>
       <PagesCard
@@ -58,13 +37,13 @@ function Courses() {
         </p>
 
         <div className="courses-page-grid">
-          {courses.map((course, index) => (
-            <Link to={course.path} key={index} className="courses-page-card">
+          {courses.map((course) => (
+            <Link to={`/courses/${course._id}`} key={course._id} className="courses-page-card">
               <div className="courses-page-card-image">
-                <img src={course.image} alt={course.name} />
+                <img src={course.image} alt={course.title} />
               </div>
               <div className="courses-page-card-content">
-                <h2>{course.name}</h2>
+                <h2>{course.title}</h2>
                 <p>{course.description}</p>
               </div>
             </Link>

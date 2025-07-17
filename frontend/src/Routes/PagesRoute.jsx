@@ -15,6 +15,7 @@ import AdminAuth from '../Admin/AdminAuth';
 import AdminDashboard from '../Admin/AdminDashboard';
 import AdminViewMessages from '../Admin/AdminViewMessages';
 import AdminManageServices from '../Admin/AdminManageServices';
+import ServiceDetails from '../Pages/ServiceDetails';
 
 function PagesRoutes() {
   return (
@@ -31,6 +32,8 @@ function PagesRoutes() {
       
       {/* ✅ Dynamic Case Study Route */}
       <Route path="/case-study/:id" element={<CaseStudyPage />} />
+
+       <Route path="/services/:id" element={<ServiceDetails />} />
 
 
       <Route path="/admin/login" element={<AdminAuth />} />

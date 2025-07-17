@@ -98,3 +98,39 @@
 .admin-service-actions button:hover {
   background: #375f97;
 }
+/* Existing styles remain untouched */
+
+.admin-service-form textarea {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Optional: input for features and video can be given spacing hints */
+.admin-service-form input[name="features"],
+.admin-service-form input[name="video"] {
+  font-style: italic;
+  color: #333;
+}
+
+/* Style placeholder text for guidance */
+.admin-service-form input::placeholder,
+.admin-service-form textarea::placeholder {
+  color: #999;
+}
+
+/* Responsive support */
+@media (max-width: 768px) {
+  .admin-service-form {
+    gap: 10px;
+  }
+
+  .admin-service-form input,
+  .admin-service-form textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}

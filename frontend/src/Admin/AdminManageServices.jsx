@@ -6,8 +6,10 @@ function AdminManageServices() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    detailedDescription: '', // ✅ NEW
+    features: '',             // ✅ NEW (comma-separated string input)
     image: '',
-    path: ''
+    video: ''                 // ✅ NEW
   });
   const [editId, setEditId] = useState(null);
 
@@ -35,6 +37,14 @@ function AdminManageServices() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const payload = {
+      ...formData,
+      features: formData.features
+        .split(',')
+        .map(item => item.trim())
+        .filter(item => item !== '') // ✅ convert string to array
+    };
+
     const url = editId
       ? `http://localhost:8000/api/services/${editId}`
       : 'http://localhost:8000/api/services';
@@ -43,14 +53,21 @@ function AdminManageServices() {
     try {
       const res = await fetch(url, {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
 
       if (!res.ok) throw new Error('Failed to save service');
-      setFormData({ title: '', description: '', image: '', path: '' });
+
+      setFormData({
+        title: '',
+        description: '',
+        detailedDescription: '',
+        features: '',
+        image: '',
+  
+        video: ''
+      });
       setEditId(null);
       fetchServices();
     } catch (err) {
@@ -59,7 +76,10 @@ function AdminManageServices() {
   };
 
   const handleEdit = (service) => {
-    setFormData(service);
+    setFormData({
+      ...service,
+      features: service.features ? service.features.join(', ') : ''
+    });
     setEditId(service._id);
   };
 
@@ -81,38 +101,13 @@ function AdminManageServices() {
         <h2 className="admin-service-heading">Manage Services</h2>
 
         <form className="admin-service-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="description"
-            placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="image"
-            placeholder="Image URL"
-            value={formData.image}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="path"
-            placeholder="Path (e.g. /services/web-design)"
-            value={formData.path}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
+          <input type="text" name="description" placeholder="Short Description" value={formData.description} onChange={handleChange} required />
+          <textarea name="detailedDescription" placeholder="Detailed Description" value={formData.detailedDescription} onChange={handleChange} rows="4" required /> {/* ✅ NEW */}
+          <input type="text" name="features" placeholder="Features (comma-separated)" value={formData.features} onChange={handleChange} /> {/* ✅ NEW */}
+          <input type="text" name="image" placeholder="Image URL" value={formData.image} onChange={handleChange} required />
+          <input type="text" name="video" placeholder="Video URL (optional)" value={formData.video} onChange={handleChange} /> {/* ✅ NEW */}
+
           <button type="submit">
             {editId ? 'Update Service' : 'Add Service'}
           </button>
@@ -125,7 +120,7 @@ function AdminManageServices() {
               <div className="admin-service-info">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <span>{service.path}</span>
+             
                 <div className="admin-service-actions">
                   <button onClick={() => handleEdit(service)}>Edit</button>
                   <button onClick={() => handleDelete(service._id)}>Delete</button>
