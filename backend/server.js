@@ -20,6 +20,8 @@ app.use('/api/contact', require('./routes/contactRoutes'));
 
 app.use('/api/services', require('./routes/serviceRoutes'));
 
+app.use('/api/courses', require('./routes/courseRoutes'));
+
 
 // Root route
 app.get('/', (req, res) => {
