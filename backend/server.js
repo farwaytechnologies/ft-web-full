@@ -17,6 +17,10 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 // Contact route
 app.use('/api/contact', require('./routes/contactRoutes'));
 
+
+app.use('/api/services', require('./routes/serviceRoutes'));
+
+
 // Root route
 app.get('/', (req, res) => {
   res.send('API running...');
