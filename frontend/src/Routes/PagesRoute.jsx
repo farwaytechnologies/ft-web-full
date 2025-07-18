@@ -16,6 +16,7 @@ import AdminDashboard from '../Admin/AdminDashboard';
 import AdminViewMessages from '../Admin/AdminViewMessages';
 import AdminManageServices from '../Admin/AdminManageServices';
 import ServiceDetails from '../Pages/ServiceDetails';
+import AdminManageCourses from '../Admin/AdminManageCourses';
 
 function PagesRoutes() {
   return (
@@ -40,6 +41,7 @@ function PagesRoutes() {
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/messages" element={<AdminViewMessages />} />
       <Route path="/admin/services" element={<AdminManageServices />} />
+      <Route path="/admin/courses" element={<AdminManageCourses />} />
 
 
     </Routes>

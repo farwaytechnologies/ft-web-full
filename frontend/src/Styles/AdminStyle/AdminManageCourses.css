@@ -1,0 +1,138 @@
+.admin-courses-container {
+  margin: auto;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #62acf6;
+  box-sizing: border-box;
+}
+
+.admin-courses-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.admin-course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.admin-course-form input,
+.admin-course-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.admin-course-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.admin-course-form button {
+  padding: 10px;
+  background-color: #4a7abe;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.admin-course-form button:hover {
+  background-color: #3d679e;
+}
+
+.admin-course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-course-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.admin-course-item img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.admin-course-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.admin-course-item p {
+  margin: 5px 0 10px;
+  color: #666;
+}
+
+.admin-course-item button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  background-color: #4a7abe;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.admin-course-item button:hover {
+  background-color: #3d679e;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .admin-course-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .admin-course-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .admin-course-item button {
+    margin-bottom: 0.5rem;
+  }
+}
+.module-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.add-module,
+.remove-module {
+  background-color: #eee;
+  color: #333;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 0.5rem;
+}
