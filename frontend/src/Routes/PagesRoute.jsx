@@ -1,4 +1,3 @@
-// src/routes/AppRoutes.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../Pages/Home';
@@ -10,13 +9,13 @@ import Services from '../Pages/Services';
 import Careers from '../Pages/Careers';
 import Blog from '../Pages/blog';
 import ApplicationForm from '../Pages/ApplicationForm';
-import CaseStudyPage from '../Pages/CaseStudyPage'; // ✅ new import
 import AdminAuth from '../Admin/AdminAuth';
 import AdminDashboard from '../Admin/AdminDashboard';
 import AdminViewMessages from '../Admin/AdminViewMessages';
 import AdminManageServices from '../Admin/AdminManageServices';
 import ServiceDetails from '../Pages/ServiceDetails';
 import AdminManageCourses from '../Admin/AdminManageCourses';
+import PortfolioDetails from '../Pages/PortfolioDetails';
 
 function PagesRoutes() {
   return (
@@ -30,19 +29,15 @@ function PagesRoutes() {
       <Route path="/careers" element={<Careers />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/apply" element={<ApplicationForm />} />
-      
-      {/* ✅ Dynamic Case Study Route */}
-      <Route path="/case-study/:id" element={<CaseStudyPage />} />
 
-       <Route path="/services/:id" element={<ServiceDetails />} />
-
-
+      <Route path="/services/:id" element={<ServiceDetails />} />
       <Route path="/admin/login" element={<AdminAuth />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/messages" element={<AdminViewMessages />} />
       <Route path="/admin/services" element={<AdminManageServices />} />
       <Route path="/admin/courses" element={<AdminManageCourses />} />
 
+      <Route path="/portfolio-details/:id" element={<PortfolioDetails/>} />
 
     </Routes>
   );

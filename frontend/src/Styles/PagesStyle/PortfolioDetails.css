@@ -1,0 +1,128 @@
+/* Page-specific dark theme styles */
+.portfolio-details-container {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 20px;
+}
+
+.portfolio-details-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.portfolio-details-header h1 {
+  font-size: 2.5rem;
+  color: #4a90e2;
+}
+
+.portfolio-details-header p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.portfolio-details-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.portfolio-details-hero img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #1a1a1a;
+}
+
+.portfolio-details-about {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.portfolio-details-about h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.portfolio-details-about p {
+  line-height: 1.6;
+}
+
+.portfolio-details-meta p {
+  margin: 6px 0;
+  color: #ccc;
+}
+
+.portfolio-details-tags {
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 12px;
+  margin: 4px;
+  font-size: 0.85rem;
+}
+
+.portfolio-details-gallery {
+  margin-bottom: 40px;
+}
+
+.portfolio-details-gallery h2 {
+  margin-bottom: 16px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #222;
+  object-fit: cover;
+}
+
+.portfolio-details-section {
+  background-color: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.portfolio-details-section h2 {
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.portfolio-details-section ul {
+  padding-left: 20px;
+}
+
+.portfolio-details-section li {
+  margin-bottom: 15px;
+}
+
+.portfolio-details-section strong {
+  color: #4a90e2;
+  font-size: 1.1rem;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.portfolio-details-loading,
+.portfolio-details-error {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.4rem;
+}
