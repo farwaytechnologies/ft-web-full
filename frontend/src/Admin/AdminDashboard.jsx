@@ -41,7 +41,7 @@ const AdminDashboard = () => {
           <Link to="/admin/services"><FaTools /> Services</Link>
           <Link to="/admin/courses"><FaBook /> Courses</Link>
           <Link to="/admin/portfolio"><FaImages /> Portfolio</Link>
-          <Link to="/admin/manage-blog"><FaBlog /> Blog</Link>
+          <Link to="/admin/blog"><FaBlog /> Blog</Link>
           <Link to="/admin/manage-about"><FaInfoCircle /> About</Link>
           <Link to="/admin/manage-careers"><FaBriefcase /> Careers</Link>
           <Link to="/admin/messages"><FaEnvelope /> Contact</Link>
