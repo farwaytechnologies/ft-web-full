@@ -23,6 +23,7 @@ app.use('/api/services', require('./routes/serviceRoutes'));
 app.use('/api/courses', require('./routes/courseRoutes'));
 app.use('/api/portfolio', require('./routes/portfolioRoutes'));
 app.use('/api/blogs', require('./routes/blogRoutes')); // ✅ Blog API route
+app.use('/api/about', require('./routes/aboutRoutes'));
 
 // Root route
 app.get('/', (req, res) => {
