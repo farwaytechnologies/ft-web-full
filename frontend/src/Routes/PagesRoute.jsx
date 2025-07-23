@@ -18,6 +18,7 @@ import AdminManageCourses from '../Admin/AdminManageCourses';
 import PortfolioDetails from '../Pages/PortfolioDetails';
 import AdminManagePortfolio from '../Admin/AdminManagePortfolio';
 import AdminManageBlog from '../Admin/AdminManageBlog';
+import AdminManageAbout from '../Admin/AdminManageAbout';
 
 function PagesRoutes() {
   return (
@@ -40,6 +41,7 @@ function PagesRoutes() {
       <Route path="/admin/courses" element={<AdminManageCourses />} />
       <Route path="/admin/portfolio" element={<AdminManagePortfolio />} />
       <Route path="/admin/blog" element={<AdminManageBlog/>} />
+      <Route path="/admin/about" element={<AdminManageAbout />} />
 
 
       <Route path="/portfolio-details/:id" element={<PortfolioDetails/>} />
