@@ -43,7 +43,7 @@ const AdminDashboard = () => {
           <Link to="/admin/portfolio"><FaImages /> Portfolio</Link>
           <Link to="/admin/blog"><FaBlog /> Blog</Link>
           <Link to="/admin/about"><FaInfoCircle /> About</Link>
-          <Link to="/admin/manage-careers"><FaBriefcase /> Careers</Link>
+          <Link to="/admin/applications"><FaBriefcase /> Careers</Link>
           <Link to="/admin/messages"><FaEnvelope /> Contact</Link>
         </nav>
 

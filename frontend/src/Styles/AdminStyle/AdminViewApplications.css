@@ -1,0 +1,77 @@
+.admin-view-apps-container {
+  padding: 2rem;
+  background-color: #4a7abe;
+  min-height: 100vh;
+}
+
+.admin-view-apps-title {
+  font-size: 2rem;
+  color: #f4f4f4;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admin-view-apps-loading,
+.admin-view-apps-empty {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.admin-view-apps-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-view-apps-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-view-apps-table th,
+.admin-view-apps-table td {
+  border: 1px solid #c8d9f0;
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.admin-view-apps-table th {
+  background-color: #e9f0fb;
+  color: #333;
+  font-weight: 600;
+}
+
+.admin-view-apps-table a {
+  color: #4a7abe;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.admin-view-apps-cover-cell {
+  max-width: 250px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f1f5fa;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.admin-view-apps-delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.admin-view-apps-delete-btn:hover {
+  background-color: #c0392b;
+}

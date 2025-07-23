@@ -38,32 +38,65 @@ function ApplicationForm() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!formData.resume) {
       alert('Please upload your resume before submitting.');
       return;
     }
 
-    console.log('Form submitted:', formData);
-    alert('Application submitted successfully! We will get back to you soon.');
+    try {
+      const data = new FormData();
+      data.append('fullName', formData.fullName);
+      data.append('email', formData.email);
+      data.append('phone', formData.phone);
+      data.append('position', formData.position);
+      data.append('experience', formData.experience);
+      data.append('portfolio', formData.portfolio);
+      data.append('coverLetter', formData.coverLetter);
+      data.append('linkedinProfile', formData.linkedinProfile);
+      data.append('currentSalary', formData.currentSalary);
+      data.append('expectedSalary', formData.expectedSalary);
+      data.append('availableDate', formData.availableDate);
+      data.append('workPreference', formData.workPreference);
+      data.append('resume', formData.resume);
 
-    // Optional: Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      position: '',
-      experience: '',
-      portfolio: '',
-      coverLetter: '',
-      linkedinProfile: '',
-      currentSalary: '',
-      expectedSalary: '',
-      availableDate: '',
-      workPreference: '',
-      resume: null,
-    });
+      const response = await fetch('http://localhost:8000/api/applications', {
+        method: 'POST',
+        body: data,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error('Server error response:', result);
+        throw new Error(result.message || 'Something went wrong during submission');
+      }
+
+      alert('Application submitted successfully! We will get back to you soon.');
+
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        position: '',
+        experience: '',
+        portfolio: '',
+        coverLetter: '',
+        linkedinProfile: '',
+        currentSalary: '',
+        expectedSalary: '',
+        availableDate: '',
+        workPreference: '',
+        resume: null,
+      });
+
+    } catch (err) {
+      console.error('❌ Submission failed:', err.message);
+      alert('Something went wrong. Please check console and try again.');
+    }
   };
 
   return (
@@ -106,7 +139,10 @@ function ApplicationForm() {
                 <label className="form-label">Position Applying For *</label>
                 <select name="position" value={formData.position} onChange={handleInputChange} className="form-select" required>
                   <option value="">Select a position</option>
-              
+                  <option value="Frontend Developer">Frontend Developer</option>
+                  <option value="Backend Developer">Backend Developer</option>
+                  <option value="Fullstack Developer">Fullstack Developer</option>
+                  <option value="UI/UX Designer">UI/UX Designer</option>
                 </select>
               </div>
               <div className="form-group">
@@ -177,8 +213,5 @@ function ApplicationForm() {
     </div>
   );
 }
-
-
-
 
 export default ApplicationForm;
