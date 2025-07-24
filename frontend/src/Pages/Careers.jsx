@@ -1,71 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/PagesStyle/Careers.css';
 
-const careerPositions = [
-  {
-    id: 1,
-    title: "Marketing Manager",
-    department: "Marketing",
-    location: "Remote / Hybrid",
-    type: "Full-time",
-    experience: "3-5 years",
-    description: "Drive strategic marketing initiatives and brand awareness across multiple channels.",
-    requirements: ["3+ years marketing experience", "Digital marketing expertise", "Team leadership skills", "Analytics proficiency"]
-  },
-  {
-    id: 2,
-    title: "Frontend Developer",
-    department: "Engineering",
-    location: "Remote / On-site",
-    type: "Full-time",
-    experience: "2-4 years",
-    description: "Build engaging UI experiences using React and modern web technologies.",
-    requirements: ["React.js expertise", "JavaScript/TypeScript", "Responsive design", "Version control (Git)"]
-  },
-  {
-    id: 3,
-    title: "Backend Developer",
-    department: "Engineering",
-    location: "Remote / On-site",
-    type: "Full-time",
-    experience: "2-5 years",
-    description: "Develop robust APIs and backend systems using Node.js, Express, and cloud technologies.",
-    requirements: ["Node.js/Express", "Database design", "API development", "Cloud platforms (AWS/Azure)"]
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Specialist",
-    department: "Marketing",
-    location: "Remote",
-    type: "Full-time",
-    experience: "1-3 years",
-    description: "Manage SEO, SEM, and social media campaigns to grow our digital presence.",
-    requirements: ["SEO/SEM expertise", "Social media management", "Content creation", "Analytics tools"]
-  },
-  {
-    id: 5,
-    title: "UI/UX Designer",
-    department: "Design",
-    location: "Remote / Hybrid",
-    type: "Full-time",
-    experience: "2-4 years",
-    description: "Create intuitive and visually appealing user interfaces and experiences.",
-    requirements: ["Figma/Adobe Creative Suite", "User research", "Prototyping", "Design systems"]
-  },
-  {
-    id: 6,
-    title: "DevOps Engineer",
-    department: "Engineering",
-    location: "Remote / On-site",
-    type: "Full-time",
-    experience: "3-6 years",
-    description: "Manage CI/CD pipelines, infrastructure automation, and cloud deployments.",
-    requirements: ["Docker/Kubernetes", "CI/CD pipelines", "Cloud infrastructure", "Monitoring tools"]
-  }
-];
-
 function Careers() {
+  const [careerPositions, setCareerPositions] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJobRoles = async () => {
+      try {
+        const res = await fetch('http://localhost:8000/api/jobroles'); // ✅ Adjust if your API URL is different
+        const data = await res.json();
+        setCareerPositions(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Failed to fetch job roles:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchJobRoles();
+  }, []);
+
   return (
     <div className="careers-container">
       {/* Hero Section */}
@@ -111,51 +67,57 @@ function Careers() {
           </div>
 
           <div className="positions-grid">
-            {careerPositions.map((position) => (
-              <Link
-                to="/apply"
-                state={{ position }}
-                key={position.id}
-                className="position-card"
-                style={{ textDecoration: 'none' }}
-              >
-                <div className="position-header">
-                  <div>
-                    <h3 className="position-title">{position.title}</h3>
-                    <div className="position-tags">
-                      <span className="tag department-tag">{position.department}</span>
-                      <span className="tag type-tag">{position.type}</span>
+            {loading ? (
+              <p style={{ textAlign: 'center', padding: '2rem' }}>Loading job roles...</p>
+            ) : careerPositions.length === 0 ? (
+              <p style={{ textAlign: 'center', padding: '2rem' }}>No job roles available at the moment.</p>
+            ) : (
+              careerPositions.map((position) => (
+                <Link
+                  to="/apply"
+                  state={{ position }}
+                  key={position._id}
+                  className="position-card"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="position-header">
+                    <div>
+                      <h3 className="position-title">{position.title}</h3>
+                      <div className="position-tags">
+                        <span className="tag department-tag">{position.department}</span>
+                        <span className="tag type-tag">{position.type}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className="position-description">{position.description}</p>
-                <div className="position-details">
-                  <div className="detail-row">
-                    <span className="detail-label">Experience:</span>
-                    <span className="detail-value">{position.experience}</span>
+                  <p className="position-description">{position.description}</p>
+                  <div className="position-details">
+                    <div className="detail-row">
+                      <span className="detail-label">Experience:</span>
+                      <span className="detail-value">{position.experience}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="detail-label">Location:</span>
+                      <span className="detail-value">{position.location}</span>
+                    </div>
                   </div>
-                  <div className="detail-row">
-                    <span className="detail-label">Location:</span>
-                    <span className="detail-value">{position.location}</span>
+                  <div className="position-requirements">
+                    <p className="requirements-label">Key Requirements:</p>
+                    <div className="requirements-tags">
+                      {position.requirements.slice(0, 2).map((req, index) => (
+                        <span key={index} className="requirement-tag">
+                          {req}
+                        </span>
+                      ))}
+                      {position.requirements.length > 2 && (
+                        <span className="requirement-tag">
+                          +{position.requirements.length - 2} more
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="position-requirements">
-                  <p className="requirements-label">Key Requirements:</p>
-                  <div className="requirements-tags">
-                    {position.requirements.slice(0, 2).map((req, index) => (
-                      <span key={index} className="requirement-tag">
-                        {req}
-                      </span>
-                    ))}
-                    {position.requirements.length > 2 && (
-                      <span className="requirement-tag">
-                        +{position.requirements.length - 2} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>
