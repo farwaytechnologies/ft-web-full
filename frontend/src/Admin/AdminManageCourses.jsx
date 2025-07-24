@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/AdminStyle/AdminManageCourses.css';
+import AdminSidebar from '../components/AdminSidebar';
+import '../Styles/AdminStyle/AdminDashboard.css';
+import '../Styles/AdminStyle/AdminManageCourses.css';
 
 function AdminManageCourses() {
+  const [admin, setAdmin] = useState(null);
   const [courses, setCourses] = useState([]);
   const [formData, setFormData] = useState({
     title: '',
@@ -13,6 +16,12 @@ function AdminManageCourses() {
   const [editId, setEditId] = useState(null);
 
   useEffect(() => {
+    const storedAdmin = localStorage.getItem('adminInfo');
+    if (storedAdmin) {
+      setAdmin(JSON.parse(storedAdmin));
+    } else {
+      window.location.href = '/admin/auth';
+    }
     fetchCourses();
   }, []);
 
@@ -101,83 +110,88 @@ function AdminManageCourses() {
   };
 
   return (
-    <div className="admin-courses-container">
-      <h2>Manage Courses</h2>
+    <div className="admin-dashboard-container">
+      <AdminSidebar admin={admin} />
+      <main className="admin-dashboard-main">
+        <div className="admin-courses-container">
+          <h2>Manage Courses</h2>
 
-      <form className="admin-course-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Course Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="description"
-          placeholder="Short Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={formData.image}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="detailedDescription"
-          placeholder="Detailed Description"
-          value={formData.detailedDescription}
-          onChange={handleChange}
-        />
-
-        <h4>Modules</h4>
-        {formData.modules.map((mod, index) => (
-          <div key={index} className="module-input-group">
+          <form className="admin-course-form" onSubmit={handleSubmit}>
             <input
               type="text"
               name="title"
-              placeholder="Module Title"
-              value={mod.title}
-              onChange={(e) => handleModuleChange(index, e)}
+              placeholder="Course Title"
+              value={formData.title}
+              onChange={handleChange}
+              required
             />
             <textarea
-              name="content"
-              placeholder="Module Content"
-              value={mod.content}
-              onChange={(e) => handleModuleChange(index, e)}
+              name="description"
+              placeholder="Short Description"
+              value={formData.description}
+              onChange={handleChange}
+              required
             />
-            {formData.modules.length > 1 && (
-              <button type="button" onClick={() => removeModule(index)} className="remove-module">
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={addModule} className="add-module">
-          + Add Module
-        </button>
+            <input
+              type="text"
+              name="image"
+              placeholder="Image URL"
+              value={formData.image}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="detailedDescription"
+              placeholder="Detailed Description"
+              value={formData.detailedDescription}
+              onChange={handleChange}
+            />
 
-        <button type="submit">{editId ? 'Update' : 'Add'} Course</button>
-      </form>
+            <h4>Modules</h4>
+            {formData.modules.map((mod, index) => (
+              <div key={index} className="module-input-group">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Module Title"
+                  value={mod.title}
+                  onChange={(e) => handleModuleChange(index, e)}
+                />
+                <textarea
+                  name="content"
+                  placeholder="Module Content"
+                  value={mod.content}
+                  onChange={(e) => handleModuleChange(index, e)}
+                />
+                {formData.modules.length > 1 && (
+                  <button type="button" onClick={() => removeModule(index)} className="remove-module">
+                    Remove
+                  </button>
+                )}
+              </div>
+            ))}
+            <button type="button" onClick={addModule} className="add-module">
+              + Add Module
+            </button>
 
-      <div className="admin-course-list">
-        {courses.map((course) => (
-          <div key={course._id} className="admin-course-item">
-            <img src={course.image} alt={course.title} />
-            <div>
-              <h3>{course.title}</h3>
-              <p>{course.description}</p>
-              <button onClick={() => handleEdit(course)}>Edit</button>
-              <button onClick={() => handleDelete(course._id)}>Delete</button>
-            </div>
+            <button type="submit">{editId ? 'Update' : 'Add'} Course</button>
+          </form>
+
+          <div className="admin-course-list">
+            {courses.map((course) => (
+              <div key={course._id} className="admin-course-item">
+                <img src={course.image} alt={course.title} />
+                <div>
+                  <h3>{course.title}</h3>
+                  <p>{course.description}</p>
+                  <button onClick={() => handleEdit(course)}>Edit</button>
+                  <button onClick={() => handleDelete(course._id)}>Delete</button>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

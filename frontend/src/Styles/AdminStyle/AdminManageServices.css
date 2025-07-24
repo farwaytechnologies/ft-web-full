@@ -32,7 +32,7 @@
 }
 
 .admin-service-form button {
-  background-color: #4a7abe;
+  background-color: #181d24;
   color: white;
   border: none;
   padding: 12px;
@@ -42,7 +42,7 @@
 }
 
 .admin-service-form button:hover {
-  background-color: #3a6aad;
+  background-color: #1e2d43;
 }
 
 .admin-service-list {

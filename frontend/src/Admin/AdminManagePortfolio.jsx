@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import AdminSidebar from '../components/AdminSidebar';
+import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManagePortfolio.css';
 
 function AdminManagePortfolio() {
@@ -84,35 +87,40 @@ function AdminManagePortfolio() {
   };
 
   return (
-    <div className="admin-portfolio-container">
-      <h1>Admin Manage Portfolio</h1>
+    <div className="admin-dashboard-container">
+      <AdminSidebar />
+      <main className="admin-dashboard-main">
+        <div className="admin-portfolio-container">
+          <h2>Manage Portfolio</h2>
 
-      <form className="portfolio-form" onSubmit={handleSubmit}>
-        <input type="text" name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
-        <input type="text" name="subtitle" placeholder="Subtitle" value={form.subtitle} onChange={handleChange} />
-        <textarea name="about" placeholder="About" value={form.about} onChange={handleChange} rows="4" />
-        <input type="text" name="system" placeholder="Platform / System" value={form.system} onChange={handleChange} />
-        <input type="text" name="language" placeholder="Language" value={form.language} onChange={handleChange} />
-        <input type="text" name="launchDate" placeholder="Launch Date" value={form.launchDate} onChange={handleChange} />
-        <input type="text" name="link" placeholder="Live Link" value={form.link} onChange={handleChange} />
-        <input type="text" name="heroImage" placeholder="Hero Image URL" value={form.heroImage} onChange={handleChange} />
-        <input type="text" name="services" placeholder="Services (comma separated)" value={form.services} onChange={handleChange} />
-        <button type="submit">{editingId ? 'Update Project' : 'Add Project'}</button>
-      </form>
+          <form className="portfolio-form" onSubmit={handleSubmit}>
+            <input type="text" name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
+            <input type="text" name="subtitle" placeholder="Subtitle" value={form.subtitle} onChange={handleChange} />
+            <textarea name="about" placeholder="About" value={form.about} onChange={handleChange} rows="4" />
+            <input type="text" name="system" placeholder="Platform / System" value={form.system} onChange={handleChange} />
+            <input type="text" name="language" placeholder="Language" value={form.language} onChange={handleChange} />
+            <input type="text" name="launchDate" placeholder="Launch Date" value={form.launchDate} onChange={handleChange} />
+            <input type="text" name="link" placeholder="Live Link" value={form.link} onChange={handleChange} />
+            <input type="text" name="heroImage" placeholder="Hero Image URL" value={form.heroImage} onChange={handleChange} />
+            <input type="text" name="services" placeholder="Services (comma separated)" value={form.services} onChange={handleChange} />
+            <button type="submit">{editingId ? 'Update Project' : 'Add Project'}</button>
+          </form>
 
-      <div className="portfolio-list">
-        {projects.map((project) => (
-          <div key={project._id} className="portfolio-card">
-            <h3>{project.title}</h3>
-            <p>{project.subtitle}</p>
-            <p><strong>Launch:</strong> {project.launchDate}</p>
-            <div className="portfolio-card-buttons">
-              <button onClick={() => handleEdit(project)}>Edit</button>
-              <button onClick={() => handleDelete(project._id)} className="delete-btn">Delete</button>
-            </div>
+          <div className="portfolio-list">
+            {projects.map((project) => (
+              <div key={project._id} className="portfolio-card">
+                <h3>{project.title}</h3>
+                <p>{project.subtitle}</p>
+                <p><strong>Launch:</strong> {project.launchDate}</p>
+                <div className="portfolio-card-buttons">
+                  <button onClick={() => handleEdit(project)}>Edit</button>
+                  <button onClick={() => handleDelete(project._id)} className="delete-btn">Delete</button>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

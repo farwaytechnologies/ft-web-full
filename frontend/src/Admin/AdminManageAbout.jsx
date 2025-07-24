@@ -1,8 +1,10 @@
-// AdminManageAbout.jsx
 import React, { useEffect, useState } from 'react';
-import '../Styles/AdminStyle/AdminManageAbout.css'; // external CSS
+import AdminSidebar from '../components/AdminSidebar'; // Assuming it's in 'src/components'
+import '../Styles/AdminStyle/AdminDashboard.css'; // shared layout styles
+import '../Styles/AdminStyle/AdminManageAbout.css'; // this page's specific styles
 
 const AdminManageAbout = () => {
+  const [admin, setAdmin] = useState(null);
   const [aboutData, setAboutData] = useState({
     heroTitle: '',
     heroSubtitle: '',
@@ -10,6 +12,16 @@ const AdminManageAbout = () => {
     vision: '',
     reasons: ['']
   });
+
+  useEffect(() => {
+    const storedAdmin = localStorage.getItem('adminInfo');
+    if (storedAdmin) {
+      setAdmin(JSON.parse(storedAdmin));
+    } else {
+      window.location.href = '/admin/auth';
+    }
+    fetchAbout();
+  }, []);
 
   const fetchAbout = async () => {
     try {
@@ -20,10 +32,6 @@ const AdminManageAbout = () => {
       console.error('Fetch Error:', err);
     }
   };
-
-  useEffect(() => {
-    fetchAbout();
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,36 +65,60 @@ const AdminManageAbout = () => {
   };
 
   return (
-    <div className="admin-about-container">
-      <h2 className="admin-about-heading">Manage About Page</h2>
-      <form className="admin-about-form" onSubmit={handleSubmit}>
-        <label>Hero Title</label>
-        <input type="text" name="heroTitle" value={aboutData.heroTitle} onChange={handleChange} />
+    <div className="admin-dashboard-container">
+      <AdminSidebar admin={admin} />
+      <main className="admin-dashboard-main">
+        <div className="admin-about-container">
+          <h2 className="admin-about-heading">Manage About Page</h2>
+          <form className="admin-about-form" onSubmit={handleSubmit}>
+            <label>Hero Title</label>
+            <input
+              type="text"
+              name="heroTitle"
+              value={aboutData.heroTitle}
+              onChange={handleChange}
+            />
 
-        <label>Hero Subtitle</label>
-        <textarea name="heroSubtitle" value={aboutData.heroSubtitle} onChange={handleChange}></textarea>
+            <label>Hero Subtitle</label>
+            <textarea
+              name="heroSubtitle"
+              value={aboutData.heroSubtitle}
+              onChange={handleChange}
+            ></textarea>
 
-        <label>Mission</label>
-        <textarea name="mission" value={aboutData.mission} onChange={handleChange}></textarea>
+            <label>Mission</label>
+            <textarea
+              name="mission"
+              value={aboutData.mission}
+              onChange={handleChange}
+            ></textarea>
 
-        <label>Vision</label>
-        <textarea name="vision" value={aboutData.vision} onChange={handleChange}></textarea>
+            <label>Vision</label>
+            <textarea
+              name="vision"
+              value={aboutData.vision}
+              onChange={handleChange}
+            ></textarea>
 
-        <label>Why Choose Us (Reasons)</label>
-        {aboutData.reasons.map((reason, index) => (
-          <input
-            key={index}
-            type="text"
-            value={reason}
-            onChange={(e) => handleReasonChange(index, e.target.value)}
-          />
-        ))}
-        <button type="button" onClick={addReason} className="add-reason-btn">
-          + Add Reason
-        </button>
+            <label>Why Choose Us (Reasons)</label>
+            {aboutData.reasons.map((reason, index) => (
+              <input
+                key={index}
+                type="text"
+                value={reason}
+                onChange={(e) => handleReasonChange(index, e.target.value)}
+              />
+            ))}
+            <button type="button" onClick={addReason} className="add-reason-btn">
+              + Add Reason
+            </button>
 
-        <button type="submit" className="submit-btn">Save Changes</button>
-      </form>
+            <button type="submit" className="submit-btn">
+              Save Changes
+            </button>
+          </form>
+        </div>
+      </main>
     </div>
   );
 };
