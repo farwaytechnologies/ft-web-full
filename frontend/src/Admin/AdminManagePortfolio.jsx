@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import AdminSidebar from '../components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManagePortfolio.css';
 
 function AdminManagePortfolio() {
+  const [admin, setAdmin] = useState(null);
   const [projects, setProjects] = useState([]);
   const [form, setForm] = useState({
     title: '',
@@ -20,6 +20,17 @@ function AdminManagePortfolio() {
   });
   const [editingId, setEditingId] = useState(null);
 
+  useEffect(() => {
+    const storedAdmin = localStorage.getItem('adminInfo');
+    if (storedAdmin) {
+      setAdmin(JSON.parse(storedAdmin));
+    } else {
+      window.location.href = '/admin/auth';
+    }
+
+    fetchProjects();
+  }, []);
+
   const fetchProjects = async () => {
     try {
       const res = await axios.get('http://localhost:8000/api/portfolio');
@@ -28,10 +39,6 @@ function AdminManagePortfolio() {
       console.error('Error fetching portfolio:', err);
     }
   };
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -88,7 +95,7 @@ function AdminManagePortfolio() {
 
   return (
     <div className="admin-dashboard-container">
-      <AdminSidebar />
+      <AdminSidebar admin={admin} />
       <main className="admin-dashboard-main">
         <div className="admin-portfolio-container">
           <h2>Manage Portfolio</h2>

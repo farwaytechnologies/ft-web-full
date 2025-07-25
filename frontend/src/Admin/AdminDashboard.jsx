@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  FaHome, FaTools, FaBook, FaImages, FaBlog,
-  FaInfoCircle, FaBriefcase, FaEnvelope, FaSignOutAlt, FaUserCircle
-} from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import AdminSidebar from '../components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -19,39 +16,9 @@ const AdminDashboard = () => {
     }
   }, [navigate]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('adminInfo');
-    navigate('/admin/login');
-  };
-
   return (
     <div className="admin-dashboard-container">
-      <aside className="admin-dashboard-sidebar">
-        <div className="admin-dashboard-profile">
-          <div className="admin-dashboard-avatar"><FaUserCircle size={32} /></div>
-          <div>
-            <p className="admin-dashboard-name">{admin?.name}</p>
-            <p className="admin-dashboard-email">{admin?.email}</p>
-          </div>
-        </div>
-
-        <nav className="admin-dashboard-nav">
-          <Link to="/admin/jobs"><FaHome /> Jobs</Link>
-          <Link to="/admin/services"><FaTools /> Services</Link>
-          <Link to="/admin/courses"><FaBook /> Courses</Link>
-          <Link to="/admin/portfolio"><FaImages /> Portfolio</Link>
-          <Link to="/admin/blog"><FaBlog /> Blog</Link>
-          <Link to="/admin/about"><FaInfoCircle /> About</Link>
-          <Link to="/admin/applications"><FaBriefcase /> Careers</Link>
-          <Link to="/admin/messages"><FaEnvelope /> Contact</Link>
-        </nav>
-
-        <button onClick={handleLogout} className="admin-dashboard-logout-btn">
-          <FaSignOutAlt /> Logout
-        </button>
-      </aside>
-
+      <AdminSidebar admin={admin} />
       <main className="admin-dashboard-main">
         <h1>Welcome, {admin?.name}</h1>
         <p>Use the sidebar to manage different sections of your website.</p>

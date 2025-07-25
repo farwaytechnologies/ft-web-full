@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar'; // Assuming it's in 'src/components'
-import '../Styles/AdminStyle/AdminDashboard.css'; // shared layout styles
-import '../Styles/AdminStyle/AdminManageAbout.css'; // this page's specific styles
+import AdminSidebar from '../components/AdminSidebar';
+import '../Styles/AdminStyle/AdminDashboard.css';
+import '../Styles/AdminStyle/AdminManageAbout.css';
 
 const AdminManageAbout = () => {
   const [admin, setAdmin] = useState(null);
@@ -56,7 +56,7 @@ const AdminManageAbout = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(aboutData)
       });
-      const data = await res.json();
+      await res.json();
       alert('About section updated successfully');
     } catch (err) {
       console.error('Submit Error:', err);
@@ -68,55 +68,58 @@ const AdminManageAbout = () => {
     <div className="admin-dashboard-container">
       <AdminSidebar admin={admin} />
       <main className="admin-dashboard-main">
-        <div className="admin-about-container">
-          <h2 className="admin-about-heading">Manage About Page</h2>
-          <form className="admin-about-form" onSubmit={handleSubmit}>
-            <label>Hero Title</label>
-            <input
-              type="text"
-              name="heroTitle"
-              value={aboutData.heroTitle}
-              onChange={handleChange}
-            />
-
-            <label>Hero Subtitle</label>
-            <textarea
-              name="heroSubtitle"
-              value={aboutData.heroSubtitle}
-              onChange={handleChange}
-            ></textarea>
-
-            <label>Mission</label>
-            <textarea
-              name="mission"
-              value={aboutData.mission}
-              onChange={handleChange}
-            ></textarea>
-
-            <label>Vision</label>
-            <textarea
-              name="vision"
-              value={aboutData.vision}
-              onChange={handleChange}
-            ></textarea>
-
-            <label>Why Choose Us (Reasons)</label>
-            {aboutData.reasons.map((reason, index) => (
+        <div className="admin-about-wrapper">
+          <div className="admin-about-card">
+            <h2 className="admin-about-title">Manage About Page</h2>
+            <form className="admin-about-form" onSubmit={handleSubmit}>
+              <label>Hero Title</label>
               <input
-                key={index}
                 type="text"
-                value={reason}
-                onChange={(e) => handleReasonChange(index, e.target.value)}
+                name="heroTitle"
+                value={aboutData.heroTitle}
+                onChange={handleChange}
               />
-            ))}
-            <button type="button" onClick={addReason} className="add-reason-btn">
-              + Add Reason
-            </button>
 
-            <button type="submit" className="submit-btn">
-              Save Changes
-            </button>
-          </form>
+              <label>Hero Subtitle</label>
+              <textarea
+                name="heroSubtitle"
+                value={aboutData.heroSubtitle}
+                onChange={handleChange}
+              ></textarea>
+
+              <label>Mission</label>
+              <textarea
+                name="mission"
+                value={aboutData.mission}
+                onChange={handleChange}
+              ></textarea>
+
+              <label>Vision</label>
+              <textarea
+                name="vision"
+                value={aboutData.vision}
+                onChange={handleChange}
+              ></textarea>
+
+              <label>Why Choose Us (Reasons)</label>
+              {aboutData.reasons.map((reason, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  value={reason}
+                  onChange={(e) => handleReasonChange(index, e.target.value)}
+                />
+              ))}
+
+              <button type="button" onClick={addReason} className="admin-about-btn secondary">
+                + Add Reason
+              </button>
+
+              <button type="submit" className="admin-about-btn">
+                Save Changes
+              </button>
+            </form>
+          </div>
         </div>
       </main>
     </div>

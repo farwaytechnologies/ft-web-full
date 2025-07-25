@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
-import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageServices.css';
 
 const AdminManageServices = () => {
@@ -67,9 +66,9 @@ const AdminManageServices = () => {
   };
 
   return (
-    <div className="admin-dashboard-container">
+    <div className="admin-service-page">
       <AdminSidebar admin={admin} />
-      <main className="admin-dashboard-main">
+      <main className="admin-service-main">
         <div className="admin-service-container">
           <h2 className="admin-service-heading">Manage Services</h2>
 
@@ -77,14 +76,14 @@ const AdminManageServices = () => {
             <input
               type="text"
               name="title"
-              placeholder="Title"
+              placeholder="Service Title"
               value={newService.title}
               onChange={handleChange}
               required
             />
             <textarea
               name="description"
-              placeholder="Description"
+              placeholder="Service Description"
               value={newService.description}
               onChange={handleChange}
               required
@@ -104,9 +103,13 @@ const AdminManageServices = () => {
             {services.map((service) => (
               <div className="admin-service-card" key={service._id}>
                 <img src={service.image} alt={service.title} />
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <button onClick={() => handleDelete(service._id)}>Delete</button>
+                <div className="admin-service-info">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <div className="admin-service-actions">
+                    <button onClick={() => handleDelete(service._id)}>Delete</button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

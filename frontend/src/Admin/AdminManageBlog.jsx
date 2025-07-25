@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar'; // reusable sidebar
-import '../Styles/AdminStyle/AdminDashboard.css'; // shared layout
-import '../Styles/AdminStyle/AdminManageBlog.css'; // page-specific styles
+import AdminSidebar from '../components/AdminSidebar';
+import '../Styles/AdminStyle/AdminDashboard.css';
+import '../Styles/AdminStyle/AdminManageBlog.css';
 
 const AdminManageBlog = () => {
   const [admin, setAdmin] = useState(null);
@@ -86,7 +86,7 @@ const AdminManageBlog = () => {
   };
 
   return (
-    <div className="admin-dashboard-container">
+    <div className="admin-dashboard-container admin-blog-layout">
       <AdminSidebar admin={admin} />
       <main className="admin-dashboard-main">
         <div className="admin-blog-container">

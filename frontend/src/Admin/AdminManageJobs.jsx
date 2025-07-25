@@ -3,6 +3,7 @@ import '../Styles/AdminStyle/AdminManageJobs.css';
 import AdminSidebar from '../components/AdminSidebar';
 
 const AdminManageJobs = () => {
+  const [admin, setAdmin] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [formData, setFormData] = useState({
     title: '',
@@ -14,6 +15,17 @@ const AdminManageJobs = () => {
     requirements: ''
   });
 
+  useEffect(() => {
+    const storedAdmin = localStorage.getItem('adminInfo');
+    if (storedAdmin) {
+      setAdmin(JSON.parse(storedAdmin));
+    } else {
+      window.location.href = '/admin/auth';
+    }
+
+    fetchJobs();
+  }, []);
+
   const fetchJobs = async () => {
     try {
       const res = await fetch('http://localhost:8000/api/jobroles');
@@ -23,10 +35,6 @@ const AdminManageJobs = () => {
       console.error('Error fetching jobs:', error);
     }
   };
-
-  useEffect(() => {
-    fetchJobs();
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -77,7 +85,7 @@ const AdminManageJobs = () => {
 
   return (
     <div className="admin-dashboard-container">
-      <AdminSidebar />
+      <AdminSidebar admin={admin} />
 
       <div className="admin-dashboard-main">
         <div className="admin-jobs-container">

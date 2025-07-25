@@ -3,9 +3,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   FaHome, FaTools, FaBook, FaImages, FaBlog,
-  FaInfoCircle, FaBriefcase, FaEnvelope, FaSignOutAlt, FaUserCircle
+  FaInfoCircle, FaBriefcase, FaEnvelope, FaSignOutAlt, FaUserCircle,FaCalendarCheck,
+  FaRegCalendarCheck
 } from 'react-icons/fa';
-import '../Styles/AdminStyle/AdminDashboard.css';
+import '../Styles/ComponentsStyle/AdminSidebar.css';
 
 const AdminSidebar = ({ admin }) => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const AdminSidebar = ({ admin }) => {
       </div>
 
       <nav className="admin-dashboard-nav">
-        <Link to="/admin/jobs"><FaHome /> jobs</Link>
+        <Link to="/admin/jobs"><FaRegCalendarCheck /> jobs</Link>
         <Link to="/admin/services"><FaTools /> Services</Link>
         <Link to="/admin/courses"><FaBook /> Courses</Link>
         <Link to="/admin/portfolio"><FaImages /> Portfolio</Link>

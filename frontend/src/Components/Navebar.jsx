@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ServicesDropdown from './ServicesDropdown';
 import CoursesDropdown from './CoursesDropdown';
 import '../Styles/ComponentsStyle/Navebar.css';
@@ -11,6 +11,8 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [admin, setAdmin] = useState(null);
+  const navigate = useNavigate();
   const timeoutRef = useRef(null);
 
   useEffect(() => {
@@ -20,6 +22,13 @@ function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const storedAdmin = localStorage.getItem('adminInfo');
+    if (storedAdmin) {
+      setAdmin(JSON.parse(storedAdmin));
+    }
   }, []);
 
   const handleMouseEnter = (menu) => {
@@ -40,14 +49,17 @@ function Navbar() {
     setMobileMenuOpen(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminInfo');
+    setAdmin(null);
+    navigate('/admin/login');
+  };
+
   const isWhite = scrolled || hovered;
 
   return (
-    <nav
-      className={`navbar ${isWhite ? 'white-bg' : ''}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <nav className={`navbar ${isWhite ? 'white-bg' : ''}`} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <div className="navbar-logo">
         <Link to="/" onClick={closeMobileMenu}>
           <img
@@ -74,7 +86,6 @@ function Navbar() {
             </div>
           )}
         </li>
-
         <li className="dropdown" onMouseEnter={() => handleMouseEnter('courses')} onMouseLeave={handleMouseLeave}>
           <Link to="/courses">
             Courses <span className="badge">Free</span>
@@ -85,14 +96,20 @@ function Navbar() {
             </div>
           )}
         </li>
-
         <li><Link to="/portfolio">Portfolio <span className="badge">New</span></Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/careers">Careers</Link></li>
         <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/admin/login">Login</Link></li>
 
+        {admin ? (
+          <>
+            <li><Link to="/admin/dashboard">Dashboard</Link></li>
+            <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
+          </>
+        ) : (
+          <li><Link to="/admin/login">Login</Link></li>
+        )}
       </ul>
 
       {mobileMenuOpen && (
@@ -105,6 +122,14 @@ function Navbar() {
           <Link to="/about" onClick={closeMobileMenu}>About</Link>
           <Link to="/careers" onClick={closeMobileMenu}>Careers</Link>
           <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
+          {admin ? (
+            <>
+              <Link to="/admin/dashboard" onClick={closeMobileMenu}>Dashboard</Link>
+              <button onClick={() => { handleLogout(); closeMobileMenu(); }} className="logout-btn">Logout</button>
+            </>
+          ) : (
+            <Link to="/admin/login" onClick={closeMobileMenu}>Login</Link>
+          )}
         </div>
       )}
     </nav>

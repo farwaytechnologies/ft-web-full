@@ -1,76 +1,67 @@
-/* AdminManageAbout.css */
-/* Apply to full page */
-body, html {
-  min-height: 100vh;
-  margin: 0;
-  background-color:  #4a7abe;
-
-  box-sizing: border-box;
+.admin-about-wrapper {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.admin-about-container {
-  margin: 40px auto;
-  padding: 30px;
-  margin-top: 4rem;
-  border: 2px solid #ffffff;
-  border-radius: 12px;
-  background-color: #fff;
+.admin-about-card {
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
-.admin-about-heading {
-  font-size: 28px;
+.admin-about-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
   text-align: center;
-  margin-bottom: 25px;
   color: #4a7abe;
 }
 
 .admin-about-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .admin-about-form label {
   font-weight: 600;
+  margin-bottom: 0.25rem;
   color: #333;
 }
 
-.admin-about-form input[type="text"],
+.admin-about-form input,
 .admin-about-form textarea {
   padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  width: 100%;
+  font-size: 1rem;
+  resize: vertical;
 }
 
 .admin-about-form textarea {
-  resize: vertical;
   min-height: 80px;
 }
 
-.add-reason-btn {
+.admin-about-btn {
   background-color: #4a7abe;
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 5px;
   cursor: pointer;
-  width: fit-content;
-}
-
-.submit-btn {
-  background-color: #4a7abe;
-  color: white;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  margin-top: 20px;
-  cursor: pointer;
+  font-weight: 600;
   transition: background 0.3s ease;
 }
 
-.submit-btn:hover {
-  background-color: #3b6398;
+.admin-about-btn.secondary {
+  background-color: #6c757d;
+}
+
+.admin-about-btn:hover {
+  background-color: #3b6399;
+}
+
+.admin-about-btn.secondary:hover {
+  background-color: #5a6268;
 }

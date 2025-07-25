@@ -170,3 +170,12 @@
     padding: 1rem;
   }
 }
+.logout-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+}

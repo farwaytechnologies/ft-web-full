@@ -1,85 +1,113 @@
 .admin-portfolio-container {
-
-
-  padding: 20px;
-  background-color: #4a7abe;
-  border: 1px solid #ccc;
-
+  max-width: 1000px;
+  margin: auto;
 }
 
-.admin-portfolio-container h1 {
+.admin-portfolio-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  color: #2a3f73;
-  margin-bottom: 30px;
+  color: #333;
 }
 
+/* Form Styles */
 .portfolio-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f7f9fc;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
 }
 
 .portfolio-form input,
 .portfolio-form textarea {
-  padding: 10px;
-  border: 1px solid #999;
+  padding: 0.85rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .portfolio-form button {
-  padding: 10px;
-  background-color: #2a3f73;
+  background-color: #2d72d9;
   color: white;
+  padding: 0.9rem;
+  font-size: 1rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .portfolio-form button:hover {
-  background-color: #1e2e56;
+  background-color: #1b4f9c;
 }
 
+/* Portfolio List Styles */
 .portfolio-list {
-  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .portfolio-card {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+ 
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .portfolio-card h3 {
-  margin: 0 0 10px;
-  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.portfolio-card p {
+  color: #555;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
 }
 
 .portfolio-card-buttons {
+  margin-top: 1rem;
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .portfolio-card-buttons button {
-  padding: 6px 12px;
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
   border: none;
-  border-radius: 4px;
-  font-size: 13px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.portfolio-card-buttons button:hover {
-  opacity: 0.9;
+.portfolio-card-buttons button:first-child {
+  background-color: #3498db;
+  color: white;
+}
+
+.portfolio-card-buttons button:first-child:hover {
+  background-color: #2980b9;
 }
 
 .portfolio-card-buttons .delete-btn {
-  background: #d33;
+  background-color: #e74c3c;
   color: white;
+}
+
+.portfolio-card-buttons .delete-btn:hover {
+  background-color: #c0392b;
 }

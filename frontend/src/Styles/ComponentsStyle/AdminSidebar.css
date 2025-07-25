@@ -1,0 +1,92 @@
+.admin-dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #4a7abe;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.admin-dashboard-sidebar {
+  width: 260px;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Info */
+.admin-dashboard-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.admin-dashboard-avatar {
+  color: white;
+  font-size: 36px;
+}
+
+.admin-dashboard-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.admin-dashboard-email {
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* Navigation */
+.admin-dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-dashboard-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.admin-dashboard-nav a:hover {
+  background-color: #34495e;
+}
+
+.admin-dashboard-nav a svg {
+  font-size: 18px;
+}
+
+/* Logout Button */
+.admin-dashboard-logout-btn {
+  margin-top: auto;
+  background-color: #4a7abe;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.admin-dashboard-logout-btn svg {
+  font-size: 18px;
+}
+
+.admin-dashboard-logout-btn:hover {
+  background-color: #f12929;
+}
