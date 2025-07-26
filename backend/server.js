@@ -1,27 +1,28 @@
+// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db');
 
-// Load environment variables from .env
+// Load environment variables
 dotenv.config();
 
 // Connect to MongoDB
 connectDB();
 
-// Create Express app
+// Initialize Express app
 const app = express();
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static folder to serve uploaded files (e.g. resumes, images)
+// Serve static files (e.g., uploaded images, resumes)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// ✅ API Routes
+// API Routes
 app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/contact', require('./routes/contactRoutes'));
 app.use('/api/services', require('./routes/serviceRoutes'));
@@ -30,9 +31,8 @@ app.use('/api/portfolio', require('./routes/portfolioRoutes'));
 app.use('/api/blogs', require('./routes/blogRoutes'));
 app.use('/api/about', require('./routes/aboutRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
-
-// ✅ New: Job Roles Routes
-app.use('/api/jobroles', require('./routes/jobRoleRoutes')); // <-- NEW ROUTE
+app.use('/api/jobroles', require('./routes/jobRoleRoutes'));
+app.use('/api/home', require('./routes/homeRoutes')); // ✅ Added HomeMainSection backend route
 
 // Root Route
 app.get('/', (req, res) => {
@@ -41,10 +41,12 @@ app.get('/', (req, res) => {
 
 // Global Error Handler
 app.use((err, req, res, next) => {
-  console.error('🔥 Error:', err.message);
-  res.status(500).json({ error: 'Server error' });
+  console.error('🔥 Server Error:', err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 // Start Server
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`✅ Server running on http://localhost:${PORT}`)
+);
