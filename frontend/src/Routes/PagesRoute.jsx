@@ -21,6 +21,7 @@ import AdminManageBlog from '../Admin/AdminManageBlog';
 import AdminManageAbout from '../Admin/AdminManageAbout';
 import AdminViewApplications from '../Admin/AdminViewApplications';
 import AdminManageJobs from '../Admin/AdminManageJobs';
+import AdminManageHomeMain from '../Admin/AdminManageHomeMain';
 
 function PagesRoutes() {
   return (
@@ -46,6 +47,8 @@ function PagesRoutes() {
       <Route path="/admin/about" element={<AdminManageAbout />} />
       <Route path="/admin/applications" element={<AdminViewApplications />} />
       <Route path="/admin/jobs" element={<AdminManageJobs />} />
+      <Route path="/admin/manage-home" element={<AdminManageHomeMain />} />
+
 
 
 

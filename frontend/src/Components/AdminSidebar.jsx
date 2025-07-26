@@ -28,6 +28,7 @@ const AdminSidebar = ({ admin }) => {
       </div>
 
       <nav className="admin-dashboard-nav">
+        <Link to="/admin/manage-home"><FaHome/> Home</Link>
         <Link to="/admin/jobs"><FaRegCalendarCheck /> jobs</Link>
         <Link to="/admin/services"><FaTools /> Services</Link>
         <Link to="/admin/courses"><FaBook /> Courses</Link>
