@@ -2,12 +2,15 @@
   display: flex;
   min-height: 100vh;
   background-color: #f4f7fa;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .admin-service-main {
   flex-grow: 1;
   padding: 2rem;
+  background-color: #4a7abe;
+  color: white;
+  overflow-y: auto;
 }
 
 .admin-service-container {
@@ -19,7 +22,7 @@
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #4a7abe;
+  color: #ffffff;
 }
 
 .admin-service-form {
@@ -41,6 +44,7 @@
   border: 1px solid #ccd8ea;
   border-radius: 6px;
   resize: vertical;
+  font-family: inherit;
 }
 
 .admin-service-form button {
@@ -60,10 +64,11 @@
 
 .admin-service-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 1.5rem;
 }
 
+/* Card Layout Fix - Horizontal Flex */
 .admin-service-card {
   background-color: #ffffff;
   border: 1px solid #dce3ed;
@@ -71,35 +76,83 @@
   overflow: hidden;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* side by side */
+  transition: box-shadow 0.3s ease;
+  min-height: 180px;
+}
+
+.admin-service-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .admin-service-card img {
-  width: 100%;
-  height: 180px;
+  width: 180px;   /* fixed width */
+  height: 100%;
   object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .admin-service-info {
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex-grow: 1;
 }
 
 .admin-service-info h3 {
   margin: 0;
   color: #333;
+  font-weight: 600;
 }
 
 .admin-service-info p {
   font-size: 0.95rem;
   color: #666;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.admin-service-info small {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.admin-service-info ul {
+  margin: 0.5rem 0;
+  padding-left: 20px;
+  color: #555;
+}
+
+.admin-service-info ul li {
+  margin-bottom: 0.25rem;
+}
+
+.admin-service-info a {
+  color: #4a7abe;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.admin-service-info a:hover {
+  text-decoration: underline;
 }
 
 .admin-service-actions {
   margin-top: auto;
+  padding-top: 0.75rem;
   text-align: right;
+  border-top: 1px solid #dce3ed;
+  background-color: #fafafa;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .admin-service-actions button {
@@ -115,4 +168,32 @@
 
 .admin-service-actions button:hover {
   background-color: #c0392b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .admin-service-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .admin-service-card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .admin-service-actions {
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-service-form {
+    padding: 1rem;
+  }
+
+  .admin-service-card img {
+    height: 140px;
+  }
 }

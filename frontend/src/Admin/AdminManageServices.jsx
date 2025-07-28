@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
 import '../Styles/AdminStyle/AdminManageServices.css';
 
+const initialForm = {
+  title: '',
+  description: '',
+  detailedDescription: '',
+  features: '',
+  image: '',
+  video: ''
+};
+
 const AdminManageServices = () => {
   const [admin, setAdmin] = useState(null);
   const [services, setServices] = useState([]);
-  const [newService, setNewService] = useState({
-    title: '',
-    description: '',
-    image: ''
-  });
+  const [formData, setFormData] = useState(initialForm);
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     const storedAdmin = localStorage.getItem('adminInfo');
@@ -32,24 +38,48 @@ const AdminManageServices = () => {
   };
 
   const handleChange = (e) => {
-    setNewService({ ...newService, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const payload = {
+      ...formData,
+      features: formData.features.split(',').map((f) => f.trim())
+    };
+
     try {
-      const res = await fetch('http://localhost:8000/api/services', {
-        method: 'POST',
+      const url = editingId
+        ? `http://localhost:8000/api/services/${editingId}`
+        : 'http://localhost:8000/api/services';
+      const method = editingId ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newService)
+        body: JSON.stringify(payload)
       });
+
       if (res.ok) {
-        setNewService({ title: '', description: '', image: '' });
         fetchServices();
+        setFormData(initialForm);
+        setEditingId(null);
       }
     } catch (error) {
-      console.error('Error adding service:', error);
+      console.error('Error submitting service:', error);
     }
+  };
+
+  const handleEdit = (service) => {
+    setFormData({
+      title: service.title,
+      description: service.description,
+      detailedDescription: service.detailedDescription,
+      features: service.features.join(', '),
+      image: service.image,
+      video: service.video || ''
+    });
+    setEditingId(service._id);
   };
 
   const handleDelete = async (id) => {
@@ -70,33 +100,59 @@ const AdminManageServices = () => {
       <AdminSidebar admin={admin} />
       <main className="admin-service-main">
         <div className="admin-service-container">
-          <h2 className="admin-service-heading">Manage Services</h2>
+          <h2 className="admin-service-heading">
+            {editingId ? 'Edit Service' : 'Add New Service'}
+          </h2>
 
           <form className="admin-service-form" onSubmit={handleSubmit}>
             <input
               type="text"
               name="title"
-              placeholder="Service Title"
-              value={newService.title}
+              placeholder="Title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="description"
+              placeholder="Short Description"
+              value={formData.description}
               onChange={handleChange}
               required
             />
             <textarea
-              name="description"
-              placeholder="Service Description"
-              value={newService.description}
+              name="detailedDescription"
+              placeholder="Detailed Description"
+              value={formData.detailedDescription}
               onChange={handleChange}
               required
-            ></textarea>
+            />
+            <input
+              type="text"
+              name="features"
+              placeholder="Features (comma-separated)"
+              value={formData.features}
+              onChange={handleChange}
+            />
             <input
               type="text"
               name="image"
               placeholder="Image URL"
-              value={newService.image}
+              value={formData.image}
               onChange={handleChange}
               required
             />
-            <button type="submit">Add Service</button>
+            <input
+              type="text"
+              name="video"
+              placeholder="Video URL (optional)"
+              value={formData.video}
+              onChange={handleChange}
+            />
+            <button type="submit">
+              {editingId ? 'Update Service' : 'Add Service'}
+            </button>
           </form>
 
           <div className="admin-service-list">
@@ -106,7 +162,19 @@ const AdminManageServices = () => {
                 <div className="admin-service-info">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
+                  <small>{service.detailedDescription}</small>
+                  <ul>
+                    {service.features.map((f, i) => (
+                      <li key={i}>{f}</li>
+                    ))}
+                  </ul>
+                  {service.video && (
+                    <a href={service.video} target="_blank" rel="noopener noreferrer">
+                      View Video
+                    </a>
+                  )}
                   <div className="admin-service-actions">
+                    <button onClick={() => handleEdit(service)}>Edit</button>
                     <button onClick={() => handleDelete(service._id)}>Delete</button>
                   </div>
                 </div>
