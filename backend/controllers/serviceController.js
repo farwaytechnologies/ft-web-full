@@ -3,11 +3,28 @@ const Service = require('../models/Service');
 // Create service
 exports.createService = async (req, res) => {
   try {
-    const { title, description, image, path } = req.body;
-    const newService = new Service({ title, description, image, path });
+    const {
+      title,
+      description,
+      detailedDescription,
+      features,
+      image,
+      video
+    } = req.body;
+
+    const newService = new Service({
+      title,
+      description,
+      detailedDescription,
+      features,
+      image,
+      video
+    });
+
     await newService.save();
     res.status(201).json(newService);
   } catch (err) {
+    console.error('Create Service Error:', err);
     res.status(500).json({ error: 'Failed to create service' });
   }
 };
@@ -22,7 +39,7 @@ exports.getAllServices = async (req, res) => {
   }
 };
 
-// Get single service
+// Get service by ID
 exports.getServiceById = async (req, res) => {
   try {
     const service = await Service.findById(req.params.id);
