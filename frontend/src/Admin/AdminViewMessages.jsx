@@ -31,12 +31,12 @@ const AdminViewMessages = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/contact/delete/${id}`, {
+      const res = await fetch(`http://localhost:8000/api/contact/${id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
       alert(data.msg);
-      fetchMessages();
+      fetchMessages(); // Refresh messages
     } catch (err) {
       console.error('Error deleting message:', err);
       alert('Failed to delete message');
