@@ -8,6 +8,6 @@ const {
 
 router.post('/submit', submitMessage);
 router.get('/all', getAllMessages);
-router.delete('/:id', deleteMessage);
+router.delete('/:id', deleteMessage); // Correct path: DELETE /api/contact/:id
 
 module.exports = router;
