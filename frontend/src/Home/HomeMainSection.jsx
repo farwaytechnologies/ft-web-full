@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/HomeStyle/HomeMainSection.css';
 import { Link } from 'react-router-dom';
+import defaultImage from '../assets/Image/cours-3.jpg'; // Adjust path as needed
 
 function HomeMainSection() {
   const [homeContent, setHomeContent] = useState(null);
@@ -22,13 +23,14 @@ function HomeMainSection() {
   if (!homeContent) return null;
 
   return (
-    <div className="home-main-section">
-      {/* Background video */}
-      <video autoPlay muted loop playsInline className="bg-video">
-        <source src={homeContent.videoUrl} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
+    <div
+      className="home-main-section"
+      style={{
+        backgroundImage: `url(${homeContent.imageUrl || defaultImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       {/* Overlay content */}
       <div className="overlay-wrapper">
         <div className="overlay-content">
