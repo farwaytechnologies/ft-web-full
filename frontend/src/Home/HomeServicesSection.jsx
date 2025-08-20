@@ -55,45 +55,6 @@ function HomeServicesSection() {
     return () => clearTimeout(timeout);
   }, []);
 
-  const coreServices = [
-    {
-      icon: "💻",
-      title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies",
-      features: ["Responsive Design", "SEO Optimized", "Fast Loading"]
-    },
-    {
-      icon: "📱",
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile apps for iOS and Android",
-      features: ["React Native", "Flutter", "Native iOS/Android"]
-    },
-    {
-      icon: "☁️",
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment solutions",
-      features: ["AWS", "Azure", "Google Cloud"]
-    },
-    {
-      icon: "🎨",
-      title: "UI/UX Design",
-      description: "User-centered design that converts visitors into customers",
-      features: ["User Research", "Prototyping", "Design Systems"]
-    },
-    {
-      icon: "🔧",
-      title: "DevOps & Automation",
-      description: "Streamlined development workflows and automated deployments",
-      features: ["CI/CD Pipelines", "Docker", "Kubernetes"]
-    },
-    {
-      icon: "🚀",
-      title: "Digital Marketing",
-      description: "Growth-focused marketing strategies to scale your business",
-      features: ["SEO/SEM", "Social Media", "Content Strategy"]
-    }
-  ];
-
   const processSteps = [
     {
       step: "01",
@@ -195,30 +156,6 @@ function HomeServicesSection() {
           <div className="metric-item">
             <div className="metric-number">{metrics.yearsExperience}+</div>
             <div className="metric-label">Years of Experience</div>
-          </div>
-        </div>
-
-        {/* Core Services Section */}
-        <div className="core-services-section">
-          <h2 className="section-title">Our Core Services</h2>
-          <p className="section-subtitle">Comprehensive solutions tailored to your business needs</p>
-          
-          <div className="services-grid">
-            {coreServices.map((service, index) => (
-              <div key={index} className="service-card">
-                <div className="service-icon">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                <div className="service-features">
-                  {service.features.map((feature, idx) => (
-                    <span key={idx} className="feature-tag">{feature}</span>
-                  ))}
-                </div>
-                <div className="service-hover-overlay">
-                  <Link to="/services" className="service-link">Learn More →</Link>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
