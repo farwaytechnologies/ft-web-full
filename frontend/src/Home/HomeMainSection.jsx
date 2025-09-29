@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/HomeStyle/HomeMainSection.css';
+import '../Styles/HomeStyle/HomeMainSection.css';
 import { Link } from 'react-router-dom';
 import defaultImage from '../assets/Image/cours-3.jpg'; // Adjust path as needed
 
