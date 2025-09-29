@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeCoursesSection.css';
+import '../Styles/HomeStyle/HomeCoursesSection.css';
 
 function HomeCourseSection() {
   const [stats, setStats] = useState({
@@ -80,7 +80,7 @@ function HomeCourseSection() {
 
   const categories = [
     "Web Development",
-    "Data Science", 
+    "Data Science",
     "Mobile Apps",
     "AI & Machine Learning",
     "Cybersecurity",
@@ -95,14 +95,14 @@ function HomeCourseSection() {
           <div className="hero-badge">
             <span className="badge-text">🎓 Premium Learning Platform</span>
           </div>
-          
+
           <h1 className="home-course-heading">
             Master New Skills with
             <span className="gradient-text"> Expert-Led Courses</span>
           </h1>
-          
+
           <p className="home-course-subheading">
-            Join thousands of professionals advancing their careers through our comprehensive, 
+            Join thousands of professionals advancing their careers through our comprehensive,
             industry-focused training programs designed by experts for real-world success.
           </p>
 

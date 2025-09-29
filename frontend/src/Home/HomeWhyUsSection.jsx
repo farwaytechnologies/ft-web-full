@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeWhyUsSection.css';
+import '../Styles/HomeStyle/HomeWhyUsSection.css';
 import whyUsVideo from '../assets/Video/Video-2.mp4';
 import {
   FiMonitor,

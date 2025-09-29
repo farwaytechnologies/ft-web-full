@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeServicesSection.css';
+import '../Styles/HomeStyle/HomeServicesSection.css';
 
 function HomeServicesSection() {
   const [metrics, setMetrics] = useState({
@@ -62,7 +62,7 @@ function HomeServicesSection() {
       description: "We analyze your needs and define project requirements"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Strategy",
       description: "Create a comprehensive plan and technical roadmap"
     },
@@ -102,14 +102,14 @@ function HomeServicesSection() {
           <div className="hero-badge">
             <span className="badge-text">🚀 Full-Stack Digital Solutions</span>
           </div>
-          
+
           <h1 className="home-services-heading">
             Transform Your Business with
             <span className="gradient-text"> Premium Services</span>
           </h1>
-          
+
           <p className="home-services-subheading">
-            From concept to launch, we deliver end-to-end digital solutions that drive growth, 
+            From concept to launch, we deliver end-to-end digital solutions that drive growth,
             enhance user experience, and position your business for long-term success in the digital landscape.
           </p>
 
@@ -163,7 +163,7 @@ function HomeServicesSection() {
         <div className="process-section">
           <h2 className="section-title">Our Process</h2>
           <p className="section-subtitle">How we bring your vision to life</p>
-          
+
           <div className="process-timeline">
             {processSteps.map((step, index) => (
               <div key={index} className="process-step">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeContactSection.css';
+import '../Styles/HomeStyle/HomeContactSection.css';
 import { FaInstagram, FaSquareXTwitter, FaYoutube } from 'react-icons/fa6';
 import { IoLogoFacebook, IoLogoLinkedin } from 'react-icons/io5';
 
