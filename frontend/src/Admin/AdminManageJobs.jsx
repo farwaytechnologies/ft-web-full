@@ -28,7 +28,7 @@ const AdminManageJobs = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/jobroles');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/jobroles');
       const data = await res.json();
       setJobs(data);
     } catch (error) {
@@ -48,7 +48,7 @@ const AdminManageJobs = () => {
       requirements: formData.requirements.split(',').map(req => req.trim())
     };
     try {
-      const res = await fetch('http://localhost:8000/api/jobroles', {
+      const res = await fetch('https://backend-iz8p.onrender.com/api/jobroles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(jobData)
@@ -72,7 +72,7 @@ const AdminManageJobs = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/jobroles/${id}`, {
+      const res = await fetch(`https://backend-iz8p.onrender.com/api/jobroles/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {

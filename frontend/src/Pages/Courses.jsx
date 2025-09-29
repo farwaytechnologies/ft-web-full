@@ -10,7 +10,7 @@ function HomeCourseSection() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/courses');
+        const res = await fetch('https://backend-iz8p.onrender.com/api/courses');
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }

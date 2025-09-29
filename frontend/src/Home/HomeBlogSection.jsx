@@ -11,12 +11,12 @@ const HomeBlogSection = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const res = await fetch('http://localhost:8000/api/blogs');
-        
+        const res = await fetch('https://backend-iz8p.onrender.com/api/blogs');
+
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-        
+
         const data = await res.json();
         setBlogs(data);
       } catch (error) {
@@ -50,8 +50,8 @@ const HomeBlogSection = () => {
           <div className="error-state">
             <h2>Oops! Something went wrong</h2>
             <p>{error}</p>
-            <button 
-              onClick={() => window.location.reload()} 
+            <button
+              onClick={() => window.location.reload()}
               className="retry-btn"
             >
               Try Again
@@ -115,21 +115,21 @@ const BlogCard = ({ blog }) => {
         )}
         <div className="image-overlay"></div>
       </div>
-      
+
       <div className="blog-card-content">
         <h3 className="blog-title">{blog.title}</h3>
         <p className="blog-description">{blog.shortDescription}</p>
-        
+
         <div className="card-footer">
           <span className="read-more">
             Read More
-            <svg 
-              className="arrow-icon" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="arrow-icon"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
               strokeWidth="2"
             >
               <path d="M5 12h14M12 5l7 7-7 7"/>

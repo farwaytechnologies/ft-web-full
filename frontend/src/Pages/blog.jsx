@@ -9,7 +9,7 @@ function Blog() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/blogs');
+        const res = await fetch('https://backend-iz8p.onrender.com/api/blogs');
         const data = await res.json();
         setBlogs(data);
       } catch (error) {

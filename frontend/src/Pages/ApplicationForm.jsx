@@ -62,7 +62,7 @@ function ApplicationForm() {
       data.append('workPreference', formData.workPreference);
       data.append('resume', formData.resume);
 
-      const response = await fetch('http://localhost:8000/api/applications', {
+      const response = await fetch('https://backend-iz8p.onrender.com/api/applications', {
         method: 'POST',
         body: data,
       });

@@ -12,7 +12,7 @@ function ServiceDetails() {
     setLoading(true);
     setError(null);
 
-    fetch(`http://localhost:8000/api/services/${id}`)
+    fetch(`https://backend-iz8p.onrender.com/api/services/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch service data');
         return res.json();

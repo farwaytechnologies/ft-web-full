@@ -9,7 +9,7 @@ function HomeMainSection() {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/home');
+        const res = await fetch('https://backend-iz8p.onrender.com/api/home');
         const data = await res.json();
         setHomeContent(data);
       } catch (err) {
