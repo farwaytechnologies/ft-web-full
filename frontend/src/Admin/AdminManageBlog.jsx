@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../Components/adminsidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageBlog.css';
 

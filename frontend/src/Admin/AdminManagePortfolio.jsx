@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AdminSidebar from '../Components/adminsidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManagePortfolio.css';
 
