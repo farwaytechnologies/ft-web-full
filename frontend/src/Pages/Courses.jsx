@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeCoursesSection.css';
+import '../Styles/HomeStyle/HomeCoursesSection.css';
 
 function HomeCourseSection() {
   const [courses, setCourses] = useState([]);

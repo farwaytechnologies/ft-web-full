@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/PagesStyle/Services.css';
+import '../Styles/PagesStyle/Services.css';
 
 import PagesCard from '../Components/PagesCard';
 import bgImage from '../assets/Image/Card-bg.jpg';
