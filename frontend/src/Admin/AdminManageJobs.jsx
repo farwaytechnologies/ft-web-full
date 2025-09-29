@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/AdminStyle/AdminManageJobs.css';
-import AdminSidebar from '../Components/adminSidebar';
+import AdminSidebar from '../Components/adminsidebar';
 
 const AdminManageJobs = () => {
   const [admin, setAdmin] = useState(null);
