@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/AdminStyle/AdminManageHomeMain.css';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/adminSidebar';
 
 const AdminManageHomeMain = () => {
   const [admin, setAdmin] = useState(null);

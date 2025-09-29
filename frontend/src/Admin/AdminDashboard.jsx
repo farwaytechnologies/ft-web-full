@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AdminSidebar from '../components/AdminSidebar.jsx';
+import AdminSidebar from '../Components/adminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 
 const AdminDashboard = () => {

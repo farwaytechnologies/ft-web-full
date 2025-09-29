@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/adminSidebar';
 import '../Styles/AdminStyle/AdminManageServices.css';
 
 const initialForm = {
