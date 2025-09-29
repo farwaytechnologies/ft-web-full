@@ -100,7 +100,7 @@ function AdminManageCourses() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8000/api/courses/${id}`, {
+      await fetch(`https://backend-iz8p.onrender.com/api/courses/${id}`, {
         method: 'DELETE',
       });
       fetchCourses();
