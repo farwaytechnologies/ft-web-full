@@ -7,7 +7,7 @@
 .admin-dashboard-main {
   flex-grow: 1;
   padding: 2rem;
-  background-color: #4a7abe;
+  background-color: #4a7abe; /* blue background */
 }
 
 .admin-jobs-container {
@@ -22,7 +22,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Form Styling */
+/* ---------- Form Styling ---------- */
 .job-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -31,6 +31,7 @@
   padding: 2rem;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
+  border-radius: 8px;
 }
 
 .job-form input,
@@ -60,13 +61,14 @@
   cursor: pointer;
   width: fit-content;
   justify-self: start;
+  transition: background 0.2s ease;
 }
 
 .add-btn:hover {
   background-color: #3b65a2;
 }
 
-/* Job List Styling */
+/* ---------- Job List Styling ---------- */
 .jobs-list {
   margin-top: 2rem;
 }
@@ -77,25 +79,37 @@
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.jobs-table th,
+/* Table header */
+.jobs-table th {
+  background-color: #3b65a2; /* darker blue header */
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Table cells */
 .jobs-table td {
   padding: 1rem;
   text-align: left;
+  color: #222;
   border-bottom: 1px solid #eee;
 }
 
-.jobs-table th {
-  background-color: #f0f4f9;
-  color: #333;
-  font-weight: 600;
+/* Zebra striping */
+.jobs-table tr:nth-child(even) td {
+  background-color: #f7f9fc;
 }
 
-.jobs-table tr:hover {
-  background-color: #f9fbfd;
+/* Row hover */
+.jobs-table tr:hover td {
+  background-color: #e3ebf5;
 }
 
+/* Delete button */
 .delete-btn {
   background-color: #e74c3c;
   color: white;
@@ -103,6 +117,7 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .delete-btn:hover {
