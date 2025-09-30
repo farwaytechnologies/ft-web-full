@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminViewMessages.css';
 
@@ -20,7 +20,7 @@ const AdminViewMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/contact/all');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/contact/all');
       const data = await res.json();
       setMessages(data);
     } catch (err) {
@@ -31,7 +31,7 @@ const AdminViewMessages = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/contact/${id}`, {
+      const res = await fetch(`https://backend-iz8p.onrender.com/api/contact/${id}`, {
         method: 'DELETE',
       });
       const data = await res.json();

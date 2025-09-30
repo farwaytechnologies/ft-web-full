@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManagePortfolio.css';
 
@@ -33,7 +33,7 @@ function AdminManagePortfolio() {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/portfolio');
+      const res = await axios.get('https://backend-iz8p.onrender.com/api/portfolio');
       setProjects(res.data);
     } catch (err) {
       console.error('Error fetching portfolio:', err);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/PagesStyle/Services.css';
+import '../Styles/PagesStyle/Services.css';
 
 import PagesCard from '../Components/PagesCard';
 import bgImage from '../assets/Image/Card-bg.jpg';
@@ -9,7 +9,7 @@ function Services() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/services')
+    fetch('https://backend-iz8p.onrender.com/api/services')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.error(err));

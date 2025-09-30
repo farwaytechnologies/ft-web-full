@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/HomeStyle/HomeTestimonialSection.css';
+import '../Styles/HomeStyle/HomeTestimonialSection.css';
 
 function HomeTestimonialSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,7 +50,7 @@ function HomeTestimonialSection() {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % testimonials.length);
     }, 5000);
@@ -93,7 +93,7 @@ function HomeTestimonialSection() {
         {/* Main Testimonial Display */}
         <div className="testimonial-main">
           <div className="testimonial-slider">
-            <div 
+            <div
               className="testimonial-track"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >

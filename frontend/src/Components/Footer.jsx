@@ -23,7 +23,7 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GLOBAL 24x7, PETER'S Nine Building,<br />
+                GLOBAL 247, PETER'S Nine Building,<br />
                 Thodupuzha, Kerala 685584
               </a>
             </div>

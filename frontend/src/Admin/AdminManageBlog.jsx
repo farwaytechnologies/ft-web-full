@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageBlog.css';
 
@@ -27,7 +27,7 @@ const AdminManageBlog = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/blogs');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/blogs');
       const data = await res.json();
       setBlogs(data);
     } catch (error) {
@@ -45,8 +45,8 @@ const AdminManageBlog = () => {
     try {
       const method = editMode ? 'PUT' : 'POST';
       const url = editMode
-        ? `http://localhost:8000/api/blogs/${editId}`
-        : 'http://localhost:8000/api/blogs';
+        ? `https://backend-iz8p.onrender.com/api/blogs/${editId}`
+        : 'https://backend-iz8p.onrender.com/api/blogs';
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
@@ -65,7 +65,7 @@ const AdminManageBlog = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/blogs/${id}`, {
+      const res = await fetch(`https://backend-iz8p.onrender.com/api/blogs/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) fetchBlogs();

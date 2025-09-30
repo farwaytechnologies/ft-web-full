@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/AdminStyle/AdminManageHomeMain.css';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 
 const AdminManageHomeMain = () => {
   const [admin, setAdmin] = useState(null);
@@ -25,7 +25,7 @@ const AdminManageHomeMain = () => {
 
   const fetchHomeContent = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/home');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/home');
       const data = await res.json();
       if (data) {
         setFormData(data);
@@ -42,7 +42,7 @@ const AdminManageHomeMain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/api/home', {
+      const res = await fetch('https://backend-iz8p.onrender.com/api/home', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

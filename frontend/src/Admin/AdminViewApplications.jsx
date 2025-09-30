@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminViewApplications.css';
 
@@ -21,7 +21,7 @@ const AdminViewApplications = () => {
 
   const fetchApplications = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/applications');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/applications');
       const data = await res.json();
       setApplications(data);
     } catch (error) {
@@ -36,7 +36,7 @@ const AdminViewApplications = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/applications/${id}`, {
+      const res = await fetch(`https://backend-iz8p.onrender.com/api/applications/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageCourses.css';
 
@@ -27,7 +27,7 @@ function AdminManageCourses() {
 
   const fetchCourses = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/courses');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/courses');
       const data = await res.json();
       setCourses(data);
     } catch (err) {
@@ -58,8 +58,8 @@ function AdminManageCourses() {
     e.preventDefault();
     try {
       const url = editId
-        ? `http://localhost:8000/api/courses/${editId}`
-        : 'http://localhost:8000/api/courses';
+        ? `https://backend-iz8p.onrender.com/api/courses/${editId}`
+        : 'https://backend-iz8p.onrender.com/api/courses';
 
       const method = editId ? 'PUT' : 'POST';
 
@@ -100,7 +100,7 @@ function AdminManageCourses() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8000/api/courses/${id}`, {
+      await fetch(`https://backend-iz8p.onrender.com/api/courses/${id}`, {
         method: 'DELETE',
       });
       fetchCourses();

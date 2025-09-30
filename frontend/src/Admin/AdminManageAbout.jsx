@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
+import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageAbout.css';
 
@@ -25,7 +25,7 @@ const AdminManageAbout = () => {
 
   const fetchAbout = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/about');
+      const res = await fetch('https://backend-iz8p.onrender.com/api/about');
       const data = await res.json();
       if (data) setAboutData(data);
     } catch (err) {
@@ -51,7 +51,7 @@ const AdminManageAbout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/api/about', {
+      const res = await fetch('https://backend-iz8p.onrender.com/api/about', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(aboutData)

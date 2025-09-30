@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomeStyle/HomeCoursesSection.css';
+import '../Styles/HomeStyle/HomeCoursesSection.css';
 
 function HomeCourseSection() {
   const [courses, setCourses] = useState([]);
@@ -10,7 +10,7 @@ function HomeCourseSection() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/courses');
+        const res = await fetch('https://backend-iz8p.onrender.com/api/courses');
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
