@@ -8,6 +8,7 @@ export default defineConfig({
     host: '0.0.0.0',
     allowedHosts: [
       'frontend-wpwr.onrender.com',
+      'ft-web-full.onrender.com',
       'farwaytechnologies.com'
     ]
   }
