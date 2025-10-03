@@ -21,8 +21,8 @@ const AdminAuth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isSignup
-      ? 'https://backend-iz8p.onrender.com/api/admin/register'
-      : 'https://backend-iz8p.onrender.com/api/admin/login';
+      ? 'https://ft-backend-c703.onrender.com/api/admin/register'
+      : 'https://ft-backend-c703.onrender.com/api/admin/login';
 
     try {
       const res = await fetch(endpoint, {

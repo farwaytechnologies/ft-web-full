@@ -8,7 +8,7 @@ function CoursesDropdown() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('https://backend-iz8p.onrender.com/api/courses');
+        const res = await fetch('https://ft-backend-c703.onrender.com/api/courses');
         const data = await res.json();
         setCourses(data);
       } catch (error) {

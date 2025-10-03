@@ -27,7 +27,7 @@ function AdminManageCourses() {
 
   const fetchCourses = async () => {
     try {
-      const res = await fetch('https://backend-iz8p.onrender.com/api/courses');
+      const res = await fetch('https://ft-backend-c703.onrender.com/api/courses');
       const data = await res.json();
       setCourses(data);
     } catch (err) {
@@ -58,8 +58,8 @@ function AdminManageCourses() {
     e.preventDefault();
     try {
       const url = editId
-        ? `https://backend-iz8p.onrender.com/api/courses/${editId}`
-        : 'https://backend-iz8p.onrender.com/api/courses';
+        ? `https://ft-backend-c703.onrender.com/api/courses/${editId}`
+        : 'https://ft-backend-c703.onrender.com/api/courses';
 
       const method = editId ? 'PUT' : 'POST';
 
@@ -100,7 +100,7 @@ function AdminManageCourses() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://backend-iz8p.onrender.com/api/courses/${id}`, {
+      await fetch(`https://ft-backend-c703.onrender.com/api/courses/${id}`, {
         method: 'DELETE',
       });
       fetchCourses();

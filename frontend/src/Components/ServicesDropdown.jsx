@@ -7,7 +7,7 @@ function ServicesDropdown() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('https://backend-iz8p.onrender.com/api/services')
+    fetch('https://ft-backend-c703.onrender.com/api/services')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch');
         return res.json();

@@ -29,7 +29,7 @@ const AdminManageServices = () => {
 
   const fetchServices = async () => {
     try {
-      const res = await fetch('https://backend-iz8p.onrender.com/api/services');
+      const res = await fetch('https://ft-backend-c703.onrender.com/api/services');
       const data = await res.json();
       setServices(data);
     } catch (error) {
@@ -50,8 +50,8 @@ const AdminManageServices = () => {
 
     try {
       const url = editingId
-        ? `https://backend-iz8p.onrender.com/api/services/${editingId}`
-        : 'https://backend-iz8p.onrender.com/api/services';
+        ? `https://ft-backend-c703.onrender.com/api/services/${editingId}`
+        : 'https://ft-backend-c703.onrender.com/api/services';
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -84,7 +84,7 @@ const AdminManageServices = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://backend-iz8p.onrender.com/api/services/${id}`, {
+      const res = await fetch(`https://ft-backend-c703.onrender.com/api/services/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {

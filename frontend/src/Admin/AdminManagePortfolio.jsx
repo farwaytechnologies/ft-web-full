@@ -33,7 +33,7 @@ function AdminManagePortfolio() {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('https://backend-iz8p.onrender.com/api/portfolio');
+      const res = await axios.get('https://ft-backend-c703.onrender.com/api/portfolio');
       setProjects(res.data);
     } catch (err) {
       console.error('Error fetching portfolio:', err);
@@ -53,9 +53,9 @@ function AdminManagePortfolio() {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:8000/api/portfolio/${editingId}`, payload);
+        await axios.put(`https://ft-backend-c703.onrender.com/api/portfolio/${editingId}`, payload);
       } else {
-        await axios.post('http://localhost:8000/api/portfolio', payload);
+        await axios.post('https://ft-backend-c703.onrender.com/api/portfolio', payload);
       }
       setForm({
         title: '',
@@ -86,7 +86,7 @@ function AdminManagePortfolio() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
-      await axios.delete(`http://localhost:8000/api/portfolio/${id}`);
+      await axios.delete(`https://ft-backend-c703.onrender.com/api/portfolio/${id}`);
       fetchProjects();
     } catch (err) {
       console.error('Error deleting project:', err);

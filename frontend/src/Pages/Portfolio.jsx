@@ -11,7 +11,7 @@ function Portfolio() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch('https://backend-iz8p.onrender.com/api/portfolio');
+        const res = await fetch('https://ft-backend-c703.onrender.com/api/portfolio');
         const data = await res.json();
         setProjects(data);
       } catch (error) {

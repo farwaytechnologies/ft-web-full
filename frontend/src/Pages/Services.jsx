@@ -9,7 +9,7 @@ function Services() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('https://backend-iz8p.onrender.com/api/services')
+    fetch('https://ft-backend-c703.onrender.com/api/services')
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.error(err));

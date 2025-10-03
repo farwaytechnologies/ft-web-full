@@ -9,7 +9,7 @@ function Careers() {
   useEffect(() => {
     const fetchJobRoles = async () => {
       try {
-        const res = await fetch('https://backend-iz8p.onrender.com/api/jobroles'); // ✅ Adjust if your API URL is different
+        const res = await fetch('https://ft-backend-c703.onrender.com/api/jobroles'); // ✅ Adjust if your API URL is different
         const data = await res.json();
         setCareerPositions(data);
         setLoading(false);

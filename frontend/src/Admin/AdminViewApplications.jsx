@@ -21,7 +21,7 @@ const AdminViewApplications = () => {
 
   const fetchApplications = async () => {
     try {
-      const res = await fetch('https://backend-iz8p.onrender.com/api/applications');
+      const res = await fetch('https://ft-backend-c703.onrender.com/api/applications');
       const data = await res.json();
       setApplications(data);
     } catch (error) {
@@ -36,7 +36,7 @@ const AdminViewApplications = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`https://backend-iz8p.onrender.com/api/applications/${id}`, {
+      const res = await fetch(`https://ft-backend-c703.onrender.com/api/applications/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {
