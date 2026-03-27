@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../api';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import '../Styles/PagesStyle/ServiceDetails.css';
 
 function ServiceDetails() {
   const { id } = useParams();

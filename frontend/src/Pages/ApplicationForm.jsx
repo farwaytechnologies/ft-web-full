@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import { API_BASE_URL } from '../api';
+import '../Styles/PagesStyle/ApplicationForm.css';
 
 function ApplicationForm() {
   const [formData, setFormData] = useState({

@@ -1,4 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../api';
+import '../Styles/PagesStyle/Blog.css';
+import PagesCard from '../Components/PagesCard';
+import bg from '../assets/Image/Card-bg.jpg';
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);

@@ -1,4 +1,7 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../api';
+import '../Styles/PagesStyle/Careers.css';
 
 function Careers() {
   const [careerPositions, setCareerPositions] = useState([]);
