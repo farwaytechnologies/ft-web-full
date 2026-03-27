@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { Link } from 'react-router-dom';
 import '../Styles/HomeStyle/HomeBlogSection.css';
 
@@ -11,7 +12,7 @@ const HomeBlogSection = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const res = await fetch('https://backend-iz8p.onrender.com/api/blogs');
+        const res = await fetch(`${API_BASE_URL}/blogs`);
 
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);

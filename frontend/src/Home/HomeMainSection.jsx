@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import '../Styles/HomeStyle/HomeMainSection.css';
 import { Link } from 'react-router-dom';
 import defaultImage from '../assets/Image/cours-3.jpg'; // Adjust path as needed
@@ -9,7 +10,7 @@ function HomeMainSection() {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const res = await fetch('https://backend-iz8p.onrender.com/api/home');
+        const res = await fetch(`${API_BASE_URL}/home`);
         const data = await res.json();
         setHomeContent(data);
       } catch (err) {
