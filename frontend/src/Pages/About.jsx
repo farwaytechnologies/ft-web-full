@@ -3,15 +3,16 @@ import '../Styles/PagesStyle/About.css';
 import PagesCard from '../Components/PagesCard';
 import bgImage from '../assets/Image/Card-bg.jpg';
 
+import api from '../api';
+
 function About() {
   const [aboutData, setAboutData] = useState(null);
 
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/about');
-        const data = await res.json();
-        setAboutData(data);
+        const res = await api.get('/about');
+        setAboutData(res.data);
       } catch (err) {
         console.error('Error fetching about data:', err);
       }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { Link } from 'react-router-dom';
 import '../Styles/ComponentsStyle/CoursesDropdown.css';
 
@@ -8,7 +9,7 @@ function CoursesDropdown() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/courses');
+        const res = await fetch(`${API_BASE_URL}/courses`);
         const data = await res.json();
         setCourses(data);
       } catch (error) {

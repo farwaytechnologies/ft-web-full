@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../Styles/AdminStyle/AdminAuth.css';
 
+import { API_BASE_URL } from '../api';
+
 const AdminAuth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,8 +23,8 @@ const AdminAuth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isSignup
-      ? 'https://ft-backend-c703.onrender.com/api/admin/register'
-      : 'https://ft-backend-c703.onrender.com/api/admin/login';
+      ? `${API_BASE_URL}/admin/register`
+      : `${API_BASE_URL}/admin/login`;
 
     try {
       const res = await fetch(endpoint, {

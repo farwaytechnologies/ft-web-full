@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { useParams } from 'react-router-dom';
-import '../Styles/PagesStyle/ServiceDetails.css';
+import { useState, useEffect } from 'react';
 
 function ServiceDetails() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ function ServiceDetails() {
     setLoading(true);
     setError(null);
 
-    fetch(`https://ft-backend-c703.onrender.com/api/services/${id}`)
+    fetch(`${API_BASE_URL}/services/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch service data');
         return res.json();

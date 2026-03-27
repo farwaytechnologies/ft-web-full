@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageAbout.css';
@@ -25,7 +26,7 @@ const AdminManageAbout = () => {
 
   const fetchAbout = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/about');
+      const res = await fetch(`${API_BASE_URL}/about`);
       const data = await res.json();
       if (data) setAboutData(data);
     } catch (err) {
@@ -51,7 +52,7 @@ const AdminManageAbout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/about', {
+      const res = await fetch(`${API_BASE_URL}/about`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(aboutData)

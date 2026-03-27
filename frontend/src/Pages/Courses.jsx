@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { Link } from 'react-router-dom';
 import '../Styles/HomeStyle/HomeCoursesSection.css';
 
@@ -10,7 +11,7 @@ function HomeCourseSection() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/courses');
+        const res = await fetch(`${API_BASE_URL}/courses`);
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }

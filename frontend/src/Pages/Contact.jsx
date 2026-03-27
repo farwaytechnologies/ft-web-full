@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../api';
 import '../Styles/PagesStyle/Contact.css';
 
 const Contact = () => {
@@ -18,7 +19,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/contact/submit', {
+      const res = await fetch(`${API_BASE_URL}/contact/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

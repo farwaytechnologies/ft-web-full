@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../Styles/PagesStyle/Careers.css';
+import { API_BASE_URL } from '../api';
 
 function Careers() {
   const [careerPositions, setCareerPositions] = useState([]);
@@ -9,7 +7,7 @@ function Careers() {
   useEffect(() => {
     const fetchJobRoles = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/jobroles'); // ✅ Adjust if your API URL is different
+        const res = await fetch(`${API_BASE_URL}/jobroles`); // ✅ Adjust if your API URL is different
         const data = await res.json();
         setCareerPositions(data);
         setLoading(false);

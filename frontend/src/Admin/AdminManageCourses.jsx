@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManageCourses.css';
@@ -27,7 +28,7 @@ function AdminManageCourses() {
 
   const fetchCourses = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/courses');
+      const res = await fetch(`${API_BASE_URL}/courses`);
       const data = await res.json();
       setCourses(data);
     } catch (err) {
@@ -58,8 +59,8 @@ function AdminManageCourses() {
     e.preventDefault();
     try {
       const url = editId
-        ? `https://ft-backend-c703.onrender.com/api/courses/${editId}`
-        : 'https://ft-backend-c703.onrender.com/api/courses';
+        ? `${API_BASE_URL}/courses/${editId}`
+        : `${API_BASE_URL}/courses`;
 
       const method = editId ? 'PUT' : 'POST';
 
@@ -100,7 +101,7 @@ function AdminManageCourses() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://ft-backend-c703.onrender.com/api/courses/${id}`, {
+      await fetch(`${API_BASE_URL}/courses/${id}`, {
         method: 'DELETE',
       });
       fetchCourses();

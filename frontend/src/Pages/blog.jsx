@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import '../Styles/PagesStyle/Blog.css';
-import PagesCard from '../Components/PagesCard';
-import bg from '../assets/Image/Card-bg.jpg';
+import { API_BASE_URL } from '../api';
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -9,7 +6,7 @@ function Blog() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/blogs');
+        const res = await fetch(`${API_BASE_URL}/blogs`);
         const data = await res.json();
         setBlogs(data);
       } catch (error) {

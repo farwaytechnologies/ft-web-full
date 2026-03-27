@@ -4,12 +4,13 @@ import '../Styles/PagesStyle/Services.css';
 
 import PagesCard from '../Components/PagesCard';
 import bgImage from '../assets/Image/Card-bg.jpg';
+import { API_BASE_URL } from '../api';
 
 function Services() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch('https://ft-backend-c703.onrender.com/api/services')
+    fetch(`${API_BASE_URL}/services`)
       .then(res => res.json())
       .then(data => setServices(data))
       .catch(err => console.error(err));

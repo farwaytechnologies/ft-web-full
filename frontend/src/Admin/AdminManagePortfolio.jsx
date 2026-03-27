@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import AdminSidebar from '../Components/AdminSidebar';
+import api from '../api';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminManagePortfolio.css';
 
@@ -33,7 +32,7 @@ function AdminManagePortfolio() {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('https://ft-backend-c703.onrender.com/api/portfolio');
+      const res = await api.get('/portfolio');
       setProjects(res.data);
     } catch (err) {
       console.error('Error fetching portfolio:', err);
@@ -53,9 +52,9 @@ function AdminManagePortfolio() {
 
     try {
       if (editingId) {
-        await axios.put(`https://ft-backend-c703.onrender.com/api/portfolio/${editingId}`, payload);
+        await api.put(`/portfolio/${editingId}`, payload);
       } else {
-        await axios.post('https://ft-backend-c703.onrender.com/api/portfolio', payload);
+        await api.post('/portfolio', payload);
       }
       setForm({
         title: '',
@@ -86,7 +85,7 @@ function AdminManagePortfolio() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
-      await axios.delete(`https://ft-backend-c703.onrender.com/api/portfolio/${id}`);
+      await api.delete(`/portfolio/${id}`);
       fetchProjects();
     } catch (err) {
       console.error('Error deleting project:', err);

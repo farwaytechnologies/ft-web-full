@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import '../Styles/PagesStyle/ApplicationForm.css';
+import { API_BASE_URL } from '../api';
 
 function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -62,7 +61,7 @@ function ApplicationForm() {
       data.append('workPreference', formData.workPreference);
       data.append('resume', formData.resume);
 
-      const response = await fetch('https://ft-backend-c703.onrender.com/api/applications', {
+      const response = await fetch(`${API_BASE_URL}/applications`, {
         method: 'POST',
         body: data,
       });

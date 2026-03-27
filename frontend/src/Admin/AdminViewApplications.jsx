@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminViewApplications.css';
@@ -21,7 +22,7 @@ const AdminViewApplications = () => {
 
   const fetchApplications = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/applications');
+      const res = await fetch(`${API_BASE_URL}/applications`);
       const data = await res.json();
       setApplications(data);
     } catch (error) {
@@ -36,7 +37,7 @@ const AdminViewApplications = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`https://ft-backend-c703.onrender.com/api/applications/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/applications/${id}`, {
         method: 'DELETE',
       });
       if (res.ok) {

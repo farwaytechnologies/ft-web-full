@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import AdminSidebar from '../Components/AdminSidebar';
 import '../Styles/AdminStyle/AdminDashboard.css';
 import '../Styles/AdminStyle/AdminViewMessages.css';
@@ -20,7 +21,7 @@ const AdminViewMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/contact/all');
+      const res = await fetch(`${API_BASE_URL}/contact/all`);
       const data = await res.json();
       setMessages(data);
     } catch (err) {
@@ -31,7 +32,7 @@ const AdminViewMessages = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
-      const res = await fetch(`https://ft-backend-c703.onrender.com/api/contact/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/contact/${id}`, {
         method: 'DELETE',
       });
       const data = await res.json();

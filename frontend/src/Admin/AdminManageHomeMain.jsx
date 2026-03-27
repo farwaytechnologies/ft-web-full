@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import '../Styles/AdminStyle/AdminManageHomeMain.css';
 import AdminSidebar from '../Components/AdminSidebar';
 
@@ -25,7 +26,7 @@ const AdminManageHomeMain = () => {
 
   const fetchHomeContent = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/home');
+      const res = await fetch(`${API_BASE_URL}/home`);
       const data = await res.json();
       if (data) {
         setFormData(data);
@@ -42,7 +43,7 @@ const AdminManageHomeMain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/home', {
+      const res = await fetch(`${API_BASE_URL}/home`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

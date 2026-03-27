@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { Link } from 'react-router-dom';
 import '../Styles/PagesStyle/Portfolio.css';
 import PagesCard from '../Components/PagesCard';
@@ -11,7 +12,7 @@ function Portfolio() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch('https://ft-backend-c703.onrender.com/api/portfolio');
+        const res = await fetch(`${API_BASE_URL}/portfolio`);
         const data = await res.json();
         setProjects(data);
       } catch (error) {

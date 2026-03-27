@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import '../Styles/AdminStyle/AdminManageJobs.css';
 import AdminSidebar from '../Components/AdminSidebar';
 
@@ -28,7 +29,7 @@ const AdminManageJobs = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/jobroles');
+      const res = await fetch(`${API_BASE_URL}/jobroles`);
       const data = await res.json();
       setJobs(data);
     } catch (error) {
@@ -48,7 +49,7 @@ const AdminManageJobs = () => {
       requirements: formData.requirements.split(',').map(req => req.trim())
     };
     try {
-      const res = await fetch('https://ft-backend-c703.onrender.com/api/jobroles', {
+      const res = await fetch(`${API_BASE_URL}/jobroles`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(jobData)
@@ -72,7 +73,7 @@ const AdminManageJobs = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://ft-backend-c703.onrender.com/api/jobroles/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/jobroles/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {

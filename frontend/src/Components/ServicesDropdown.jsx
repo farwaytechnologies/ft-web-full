@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import '../Styles/ComponentsStyle/ServicesDropdown.css';
 
 function ServicesDropdown() {
@@ -7,7 +8,7 @@ function ServicesDropdown() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('https://ft-backend-c703.onrender.com/api/services')
+    fetch(`${API_BASE_URL}/services`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch');
         return res.json();

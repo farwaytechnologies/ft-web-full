@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../api';
 import { useParams } from 'react-router-dom';
 import '../Styles/PagesStyle/PortfolioDetails.css';
 
@@ -10,7 +11,7 @@ function PortfolioDetails() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const res = await fetch(`https://ft-backend-c703.onrender.com/api/portfolio/${id}`);
+        const res = await fetch(`${API_BASE_URL}/portfolio/${id}`);
         const data = await res.json();
         setProject(data);
       } catch (err) {
