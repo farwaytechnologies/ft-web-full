@@ -1,113 +1,386 @@
-.admin-portfolio-container {
-  max-width: 1000px;
-  margin: auto;
+/* ── Override dashboard main ─────────────────────────── */
+.admin-dashboard-main:has(.apm-wrapper) {
+  background-color: #0f1117 !important;
+  padding: 2rem !important;
 }
 
-.admin-portfolio-container h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #333;
+/* ── Wrapper ─────────────────────────────────────────── */
+.apm-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
 }
 
-/* Form Styles */
-.portfolio-form {
-  display: grid;
-  gap: 1rem;
-  padding: 1.5rem;
-  background-color: #f7f9fc;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  margin-bottom: 2rem;
+/* ── Reset inherited dashboard colors ────────────────── */
+.apm-wrapper p,
+.apm-wrapper h1,
+.apm-wrapper h2,
+.apm-wrapper h3 {
+  color: inherit;
 }
 
-.portfolio-form input,
-.portfolio-form textarea {
-  padding: 0.85rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.portfolio-form button {
-  background-color: #2d72d9;
-  color: white;
-  padding: 0.9rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.portfolio-form button:hover {
-  background-color: #1b4f9c;
-}
-
-/* Portfolio List Styles */
-.portfolio-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.portfolio-card {
-  background-color: #ffffff;
-  border: 1px solid #e1e4e8;
- 
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s ease;
-}
-
-.portfolio-card:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-}
-
-.portfolio-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #222;
-}
-
-.portfolio-card p {
-  color: #555;
-  margin: 0.3rem 0;
+/* ── Toast ───────────────────────────────────────────── */
+.apm-toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
   font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: apm-slide-in 0.3s ease;
+}
+.apm-toast--success { background: #16a34a; color: #fff; }
+.apm-toast--error   { background: #dc2626; color: #fff; }
+
+@keyframes apm-slide-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.portfolio-card-buttons {
-  margin-top: 1rem;
+/* ── Header ──────────────────────────────────────────── */
+.apm-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.apm-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.apm-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0.2rem 0 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.apm-btn-primary {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.3rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.apm-btn-primary:hover:not(:disabled) { background: #2563eb; }
+.apm-btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.apm-btn-secondary {
+  background: #1e2535;
+  color: #94a3b8;
+  border: 1px solid #2d3748;
+  padding: 0.65rem 1.3rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.apm-btn-secondary:hover { background: #263044; color: #cbd5e1; }
+
+/* ── Form Card ───────────────────────────────────────── */
+.apm-form-card {
+  background: #161b27;
+  border: 1px solid #1e2d45;
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  animation: apm-fade-in 0.25s ease;
+}
+
+@keyframes apm-fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.apm-form-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0 0 1.5rem;
+}
+
+.apm-form-section-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #3b82f6;
+  margin: 1.25rem 0 0.75rem;
+  border-bottom: 1px solid #1e2d45;
+  padding-bottom: 0.4rem;
+}
+
+.apm-form {
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-.portfolio-card-buttons button {
+.apm-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.apm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.apm-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.apm-field input,
+.apm-field textarea {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid #2d3748;
+  border-radius: 7px;
+  background: #0f1117;
+  color: #e2e8f0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.apm-field input::placeholder,
+.apm-field textarea::placeholder {
+  color: #475569;
+}
+
+.apm-field input:focus,
+.apm-field textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  background: #161b27;
+}
+
+/* ── Image Preview ───────────────────────────────────── */
+.apm-image-preview {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #1e2d45;
+  max-height: 200px;
+}
+.apm-image-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Form Actions ────────────────────────────────────── */
+.apm-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1e2d45;
+}
+
+/* ── Search Bar ──────────────────────────────────────── */
+.apm-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #161b27;
+  border: 1px solid #1e2d45;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+}
+
+.apm-search-icon { font-size: 1rem; color: #475569; }
+
+.apm-search-bar input {
   flex: 1;
-  padding: 0.5rem;
-  font-size: 0.9rem;
   border: none;
-  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  background: transparent;
+}
+
+.apm-search-bar input::placeholder { color: #475569; }
+
+.apm-search-clear {
+  background: none;
+  border: none;
+  color: #475569;
   cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  line-height: 1;
+}
+.apm-search-clear:hover { color: #ef4444; }
+
+/* ── Empty State ─────────────────────────────────────── */
+.apm-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #475569;
+  font-size: 1rem;
+  background: #161b27;
+  border: 1px dashed #1e2d45;
+  border-radius: 12px;
 }
 
-.portfolio-card-buttons button:first-child {
-  background-color: #3498db;
-  color: white;
+/* ── Grid ────────────────────────────────────────────── */
+.apm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
-.portfolio-card-buttons button:first-child:hover {
-  background-color: #2980b9;
+/* ── Card ────────────────────────────────────────────── */
+.apm-card {
+  background: #161b27;
+  border: 1px solid #1e2d45;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.apm-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+  transform: translateY(-3px);
+  border-color: #3b82f6;
 }
 
-.portfolio-card-buttons .delete-btn {
-  background-color: #e74c3c;
-  color: white;
+.apm-card-image {
+  height: 170px;
+  overflow: hidden;
+  background: #0f1117;
+}
+.apm-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.apm-card:hover .apm-card-image img { transform: scale(1.05); }
+
+.apm-card-body {
+  padding: 1rem 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.portfolio-card-buttons .delete-btn:hover {
-  background-color: #c0392b;
+.apm-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.apm-card-subtitle {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.apm-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.apm-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+.apm-badge--blue   { background: #1e3a5f; color: #60a5fa; }
+.apm-badge--purple { background: #2e1b5e; color: #a78bfa; }
+.apm-badge--gray   { background: #1e2535; color: #94a3b8; }
+
+.apm-card-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.apm-service-tag {
+  font-size: 0.75rem;
+  background: #0d2818;
+  color: #4ade80;
+  border: 1px solid #166534;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+}
+
+.apm-card-link {
+  font-size: 0.85rem;
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: auto;
+}
+.apm-card-link:hover { color: #93c5fd; text-decoration: underline; }
+
+/* ── Card Footer ─────────────────────────────────────── */
+.apm-card-footer {
+  display: flex;
+  border-top: 1px solid #1e2d45;
+}
+
+.apm-btn-edit,
+.apm-btn-delete {
+  flex: 1;
+  padding: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.apm-btn-edit {
+  background: #161b27;
+  color: #60a5fa;
+  border-right: 1px solid #1e2d45;
+}
+.apm-btn-edit:hover { background: #1e3a5f; color: #93c5fd; }
+
+.apm-btn-delete {
+  background: #161b27;
+  color: #f87171;
+}
+.apm-btn-delete:hover { background: #2d1515; color: #fca5a5; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .apm-form-row { grid-template-columns: 1fr; }
+  .apm-grid { grid-template-columns: 1fr; }
+  .apm-header { flex-direction: column; align-items: flex-start; }
 }

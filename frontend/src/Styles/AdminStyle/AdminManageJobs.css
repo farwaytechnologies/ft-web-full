@@ -1,13 +1,13 @@
 .admin-dashboard-container {
   display: flex;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #0f1117;
 }
 
 .admin-dashboard-main {
   flex-grow: 1;
   padding: 2rem;
-  background-color: #4a7abe; /* blue background */
+  background-color: #0f1117;
 }
 
 .admin-jobs-container {
@@ -16,32 +16,50 @@
 }
 
 .admin-jobs-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #f9fafa;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
   margin-bottom: 1.5rem;
 }
 
-/* ---------- Form Styling ---------- */
+/* ---------- Form ---------- */
 .job-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem 2rem;
-  background-color: #ffffff;
+  background-color: #161b27;
   padding: 2rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #1e2d45;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
   margin-bottom: 2rem;
-  border-radius: 8px;
 }
 
 .job-form input,
 .job-form textarea {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid #2d3748;
+  border-radius: 7px;
+  background-color: #0f1117;
+  color: #e2e8f0;
   width: 100%;
   box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.job-form input::placeholder,
+.job-form textarea::placeholder {
+  color: #475569;
+}
+
+.job-form input:focus,
+.job-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  background-color: #161b27;
 }
 
 .job-form textarea {
@@ -52,74 +70,95 @@
 
 .add-btn {
   grid-column: span 2;
-  padding: 0.75rem 1.5rem;
-  background-color: #4a7abe;
-  color: white;
+  padding: 0.7rem 1.5rem;
+  background-color: #3b82f6;
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   width: fit-content;
   justify-self: start;
-  transition: background 0.2s ease;
+  transition: background 0.2s;
 }
 
-.add-btn:hover {
-  background-color: #3b65a2;
-}
+.add-btn:hover { background-color: #2563eb; }
 
-/* ---------- Job List Styling ---------- */
+/* ---------- Job List ---------- */
 .jobs-list {
   margin-top: 2rem;
+}
+
+.jobs-list > p {
+  color: #475569;
+  font-size: 1rem;
 }
 
 .jobs-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
+  background-color: #161b27;
+  border: 1px solid #1e2d45;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
 
-/* Table header */
 .jobs-table th {
-  background-color: #3b65a2; /* darker blue header */
-  color: #fff;
+  background-color: #1e2d45;
+  color: #93c5fd;
   font-weight: 600;
-  padding: 1rem;
+  padding: 0.9rem 1rem;
   text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Table cells */
 .jobs-table td {
-  padding: 1rem;
+  padding: 0.9rem 1rem;
   text-align: left;
-  color: #222;
-  border-bottom: 1px solid #eee;
+  color: #cbd5e1;
+  border-bottom: 1px solid #1e2d45;
+  font-size: 0.93rem;
 }
 
-/* Zebra striping */
-.jobs-table tr:nth-child(even) td {
-  background-color: #f7f9fc;
+.jobs-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Row hover */
-.jobs-table tr:hover td {
-  background-color: #e3ebf5;
+.jobs-table tbody tr:hover td {
+  background-color: #1a2236;
+  color: #f1f5f9;
 }
 
-/* Delete button */
+/* ---------- Delete button ---------- */
 .delete-btn {
-  background-color: #e74c3c;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
+  background-color: transparent;
+  color: #f87171;
+  border: 1px solid #7f1d1d;
+  padding: 0.4rem 0.85rem;
   border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s, color 0.2s;
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  background-color: #2d1515;
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .job-form {
+    grid-template-columns: 1fr;
+  }
+  .job-form textarea,
+  .add-btn {
+    grid-column: span 1;
+  }
 }

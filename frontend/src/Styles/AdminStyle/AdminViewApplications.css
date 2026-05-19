@@ -1,12 +1,18 @@
+.admin-dashboard-main:has(.admin-view-apps-container) {
+  background-color: #0f1117!important;
+  padding: 0 !important;
+}
+
 .admin-view-apps-container {
   padding: 2rem;
-  background-color: #4a7abe;
+  background-color: #0f1117;
   min-height: 100vh;
 }
 
 .admin-view-apps-title {
-  font-size: 2rem;
-  color: #f4f4f4;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -14,64 +20,105 @@
 .admin-view-apps-loading,
 .admin-view-apps-empty {
   text-align: center;
-  color: #666;
-  font-size: 1.1rem;
+  color: #475569;
+  font-size: 1rem;
   margin-top: 2rem;
 }
 
+/* ── Table Wrapper ───────────────────────────────────── */
 .admin-view-apps-table-wrapper {
   overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #1e2d45;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
 
 .admin-view-apps-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: #161b27;
 }
 
-.admin-view-apps-table th,
-.admin-view-apps-table td {
-  border: 1px solid #c8d9f0;
-  padding: 1rem;
-  text-align: left;
-  vertical-align: top;
-  font-size: 0.95rem;
+/* ── Header ──────────────────────────────────────────── */
+.admin-view-apps-table thead tr {
+  background-color: #1e2d45;
 }
 
 .admin-view-apps-table th {
-  background-color: #e9f0fb;
-  color: #333;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #93c5fd;
+  border-bottom: 1px solid #1e2d45;
+  white-space: nowrap;
+}
+
+/* ── Cells ───────────────────────────────────────────── */
+.admin-view-apps-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  border-bottom: 1px solid #1e2d45;
+}
+
+.admin-view-apps-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-view-apps-table tbody tr:hover td {
+  background-color: #1a2236;
+  color: #f1f5f9;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+.admin-view-apps-table a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-word;
+}
+.admin-view-apps-table a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* ── Strong labels ───────────────────────────────────── */
+.admin-view-apps-table strong {
+  color: #94a3b8;
   font-weight: 600;
 }
 
-.admin-view-apps-table a {
-  color: #4a7abe;
-  text-decoration: underline;
-  word-break: break-word;
-}
-
+/* ── Cover Letter Cell ───────────────────────────────── */
 .admin-view-apps-cover-cell {
-  max-width: 250px;
+  max-width: 220px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background-color: #f1f5fa;
-  border-radius: 4px;
-  padding: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
 }
 
+/* ── Delete Button ───────────────────────────────────── */
 .admin-view-apps-delete-btn {
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 0.5rem 0.8rem;
-  border: none;
+  background-color: transparent;
+  color: #f87171;
+  border: 1px solid #7f1d1d;
+  padding: 0.4rem 0.85rem;
   border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
 .admin-view-apps-delete-btn:hover {
-  background-color: #c0392b;
+  background-color: #2d1515;
+  color: #fca5a5;
+  border-color: #ef4444;
 }
