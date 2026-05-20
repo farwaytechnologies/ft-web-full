@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { API_BASE_URL } from '../api';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import '../Styles/PagesStyle/ServiceDetails.css';
 
 function ServiceDetails() {
@@ -11,53 +11,92 @@ function ServiceDetails() {
 
   useEffect(() => {
     setLoading(true);
-    setError(null);
-
     fetch(`${API_BASE_URL}/services/${id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch service data');
+      .then(res => {
+        if (!res.ok) throw new Error('Service not found');
         return res.json();
       })
-      .then((data) => {
-        setService(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err.message);
-        setLoading(false);
-      });
+      .then(data => { setService(data); setLoading(false); })
+      .catch(err => { setError(err.message); setLoading(false); });
   }, [id]);
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
-  if (!service) return <div className="error">Service not found.</div>;
+  if (loading) return (
+    <div className="sd-state">
+      <div className="sd-spinner" />
+      <p>Loading service...</p>
+    </div>
+  );
+
+  if (error || !service) return (
+    <div className="sd-state sd-error">
+      <h2>Service not found</h2>
+      <Link to="/services" className="sd-back-btn">← Back to Services</Link>
+    </div>
+  );
 
   return (
-    <div className="service-details-container">
-      <div className="service-details-banner">
-        {service.image ? (
-          <img src={service.image} alt={service.title || 'Service Image'} />
-        ) : (
-          <div className="placeholder-image">No Image Available</div>
+    <div className="sd-page">
+
+      {/* Hero Banner */}
+      <div className="sd-hero">
+        {service.image && (
+          <img src={service.image} alt={service.title} className="sd-hero-img" />
         )}
-        <h1>{service.title || 'Untitled Service'}</h1>
+        <div className="sd-hero-overlay">
+          <div className="sd-hero-content">
+            <Link to="/services" className="sd-breadcrumb">← All Services</Link>
+            <h1 className="sd-hero-title">{service.title}</h1>
+            <p className="sd-hero-desc">{service.description}</p>
+          </div>
+        </div>
       </div>
 
-      <div className="service-details-content">
-        <p className="service-details-description">
-          {service.detailedDescription || 'No detailed description provided.'}
-        </p>
+      {/* Main Content */}
+      <div className="sd-body">
+        <div className="sd-container">
 
-        {service.features && service.features.length > 0 ? (
-          <ul className="service-details-features">
-            {service.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No features listed.</p>
-        )}
+          {/* About */}
+          <section className="sd-section">
+            <h2 className="sd-section-title">About This Service</h2>
+            <p className="sd-section-text">{service.detailedDescription}</p>
+          </section>
+
+          {/* Features */}
+          {service.features?.length > 0 && (
+            <section className="sd-section">
+              <h2 className="sd-section-title">What's Included</h2>
+              <ul className="sd-features">
+                {service.features.map((f, i) => (
+                  <li key={i} className="sd-feature-item">
+                    <span className="sd-feature-icon">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Video */}
+          {service.video && (
+            <section className="sd-section">
+              <h2 className="sd-section-title">See It In Action</h2>
+              <div className="sd-video-wrapper">
+                <video controls className="sd-video">
+                  <source src={service.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </section>
+          )}
+
+          {/* CTA */}
+          <div className="sd-cta">
+            <h3>Ready to get started?</h3>
+            <p>Let's discuss how we can help you with {service.title}.</p>
+            <Link to="/contact" className="sd-cta-btn">Get In Touch</Link>
+          </div>
+
+        </div>
       </div>
     </div>
   );

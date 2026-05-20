@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../api';
 import '../Styles/ComponentsStyle/ServicesDropdown.css';
 
 function ServicesDropdown() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/services`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch');
-        return res.json();
-      })
-      .then((data) => {
-        console.log('Fetched services:', data); // Log the full data
-        setServices(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Failed to fetch services:', err);
-        setError(true);
-        setLoading(false);
-      });
+      .then(res => res.json())
+      .then(data => { setServices(data); setLoading(false); })
+      .catch(() => setLoading(false));
   }, []);
 
   return (
@@ -30,29 +19,24 @@ function ServicesDropdown() {
       <div className="services-dropdown-heading">
         <h1 className="services-dropdown-title">Services We Provide</h1>
         <p className="services-dropdown-description">
-          Discover our diverse range of cutting-edge services designed to accelerate your business growth. We leverage the latest technologies to deliver innovative solutions — all at highly affordable prices tailored to suit your needs.
+          Cutting-edge solutions designed to accelerate your business growth at affordable prices.
         </p>
       </div>
 
       <div className="services-dropdown-list-wrapper">
         {loading ? (
-          <p style={{ color: '#fff' }}>Loading services...</p>
-        ) : error ? (
-          <p style={{ color: 'red' }}>Error loading services</p>
+          <p style={{ color: '#94a3b8' }}>Loading...</p>
         ) : services.length === 0 ? (
-          <p style={{ color: '#ccc' }}>No services found</p>
+          <p style={{ color: '#64748b' }}>No services found</p>
         ) : (
           <ul className="services-dropdown-list">
-            {services.map((service, index) => {
-              console.log('Service item:', service); // Log each item
-              return (
-                <li key={service._id || index} className="services-dropdown-list-item">
-                  <div className="services-dropdown-link">
-                    {service.name || service.title || 'Unnamed Service'}
-                  </div>
-                </li>
-              );
-            })}
+            {services.map((service) => (
+              <li key={service._id} className="services-dropdown-list-item">
+                <Link to={`/services/${service._id}`} className="services-dropdown-link">
+                  {service.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         )}
       </div>

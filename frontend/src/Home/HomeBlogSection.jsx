@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../api';
 import { Link } from 'react-router-dom';
 import '../Styles/HomeStyle/HomeBlogSection.css';
+import bgVideo from '../assets/Video/Video-1.mp4';
 
 const HomeBlogSection = () => {
   const [blogs, setBlogs] = useState([]);
@@ -34,6 +35,10 @@ const HomeBlogSection = () => {
   if (loading) {
     return (
       <section className="blog-section">
+        <video autoPlay muted loop playsInline className="blog-bg-video">
+          <source src={bgVideo} type="video/mp4" />
+        </video>
+        <div className="blog-bg-overlay" />
         <div className="container">
           <div className="loading-spinner">
             <div className="spinner"></div>
@@ -47,14 +52,15 @@ const HomeBlogSection = () => {
   if (error) {
     return (
       <section className="blog-section">
+        <video autoPlay muted loop playsInline className="blog-bg-video">
+          <source src={bgVideo} type="video/mp4" />
+        </video>
+        <div className="blog-bg-overlay" />
         <div className="container">
           <div className="error-state">
             <h2>Oops! Something went wrong</h2>
             <p>{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="retry-btn"
-            >
+            <button onClick={() => window.location.reload()} className="retry-btn">
               Try Again
             </button>
           </div>
@@ -65,6 +71,10 @@ const HomeBlogSection = () => {
 
   return (
     <section className="blog-section">
+      <video autoPlay muted loop playsInline className="blog-bg-video">
+        <source src={bgVideo} type="video/mp4" />
+      </video>
+      <div className="blog-bg-overlay" />
       <div className="container">
         <header className="section-header">
           <h2 className="section-title">Latest Insights</h2>
