@@ -1,0 +1,228 @@
+/* ── States ──────────────────────────────────────────── */
+.cd-state {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #0a0d14;
+  color: #64748b;
+}
+.cd-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid #1e2d45;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: cd-spin 0.8s linear infinite;
+}
+@keyframes cd-spin { to { transform: rotate(360deg); } }
+.cd-error h2 { color: #f1f5f9; }
+.cd-back { color: #60a5fa; text-decoration: none; font-weight: 600; }
+
+/* ── Toast ───────────────────────────────────────────── */
+.cd-toast {
+  position: fixed; top: 1.5rem; right: 1.5rem; z-index: 9999;
+  padding: 0.85rem 1.4rem; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: cd-slide 0.3s ease;
+}
+.cd-toast--success { background: #16a34a; color: #fff; }
+.cd-toast--error   { background: #dc2626; color: #fff; }
+@keyframes cd-slide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Page ────────────────────────────────────────────── */
+.cd-page { background: #0a0d14; min-height: 100vh; }
+
+/* ── Hero ────────────────────────────────────────────── */
+.cd-hero {
+  position: relative;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+}
+.cd-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,13,20,0.55) 0%, rgba(10,13,20,0.92) 100%);
+  display: flex; align-items: flex-end;
+}
+.cd-hero-content { padding: 3rem; max-width: 800px; }
+.cd-breadcrumb {
+  display: inline-block; color: #60a5fa; text-decoration: none;
+  font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;
+}
+.cd-breadcrumb:hover { color: #93c5fd; }
+.cd-hero-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.cd-badge {
+  font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.7rem;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.cd-badge--level  { background: #1e3a5f; color: #60a5fa; }
+.cd-badge--cat    { background: #2e1b5e; color: #a78bfa; }
+.cd-badge--dur    { background: #1e2d45; color: #94a3b8; }
+.cd-hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #f1f5f9; margin: 0 0 0.75rem; }
+.cd-hero-desc  { font-size: 1rem; color: #cbd5e1; margin: 0 0 1.5rem; max-width: 600px; line-height: 1.6; }
+
+.cd-enroll-btn {
+  background: #3b82f6; color: #fff; border: none;
+  padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem;
+  font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.2s;
+}
+.cd-enroll-btn:hover { background: #2563eb; transform: translateY(-2px); }
+
+/* ── Progress ────────────────────────────────────────── */
+.cd-progress-bar-wrap { max-width: 400px; }
+.cd-progress-label { display: flex; justify-content: space-between; color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.4rem; }
+.cd-progress-track { height: 8px; background: #1e2d45; border-radius: 4px; overflow: hidden; }
+.cd-progress-fill  { height: 100%; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 4px; transition: width 0.5s ease; }
+
+/* ── Modal ───────────────────────────────────────────── */
+.cd-modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 1000; display: flex; align-items: center; justify-content: center;
+}
+.cd-modal {
+  background: #161b27; border: 1px solid #1e2d45; border-radius: 14px;
+  padding: 2rem; width: 100%; max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: cd-slide 0.25s ease;
+}
+.cd-modal h3 { color: #f1f5f9; font-size: 1.2rem; margin: 0 0 0.5rem; }
+.cd-modal p  { color: #64748b; font-size: 0.9rem; margin: 0 0 1.5rem; }
+.cd-modal-form { display: flex; flex-direction: column; gap: 0.85rem; }
+.cd-modal-form input {
+  padding: 0.75rem 1rem; background: #0f1117; border: 1px solid #2d3748;
+  border-radius: 7px; color: #e2e8f0; font-size: 0.95rem; font-family: inherit;
+}
+.cd-modal-form input::placeholder { color: #475569; }
+.cd-modal-form input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+.cd-modal-actions { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem; }
+.cd-modal-cancel {
+  background: #1e2535; color: #94a3b8; border: 1px solid #2d3748;
+  padding: 0.6rem 1.2rem; border-radius: 7px; cursor: pointer; font-weight: 600;
+}
+.cd-modal-submit {
+  background: #3b82f6; color: #fff; border: none;
+  padding: 0.6rem 1.4rem; border-radius: 7px; cursor: pointer; font-weight: 700;
+}
+.cd-modal-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Body Layout ─────────────────────────────────────── */
+.cd-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 60vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+.cd-sidebar {
+  background: #161b27; border: 1px solid #1e2d45;
+  border-radius: 12px; overflow: hidden;
+  position: sticky; top: 80px;
+}
+.cd-sidebar-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.25rem; border-bottom: 1px solid #1e2d45;
+}
+.cd-sidebar-header h3 { color: #f1f5f9; font-size: 0.95rem; font-weight: 700; margin: 0; }
+.cd-sidebar-header span { color: #64748b; font-size: 0.8rem; }
+.cd-lesson-list { list-style: none; padding: 0; margin: 0; }
+.cd-no-lessons { padding: 1.5rem; color: #475569; text-align: center; font-size: 0.9rem; }
+
+.cd-lesson-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.85rem 1.25rem; cursor: pointer;
+  border-bottom: 1px solid #1a2236;
+  transition: background 0.15s;
+}
+.cd-lesson-item:hover { background: #1a2236; }
+.cd-lesson-item--active { background: #1e3a5f !important; }
+.cd-lesson-item--done .cd-lesson-title { color: #4ade80; }
+
+.cd-lesson-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #1e2d45; color: #94a3b8;
+  font-size: 0.75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cd-lesson-item--done .cd-lesson-num { background: #166534; color: #4ade80; }
+.cd-lesson-item--active .cd-lesson-num { background: #1d4ed8; color: #fff; }
+
+.cd-lesson-info { flex: 1; min-width: 0; }
+.cd-lesson-title { display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cd-lesson-dur   { display: block; color: #475569; font-size: 0.75rem; margin-top: 0.15rem; }
+
+.cd-check-btn {
+  background: none; border: 1px solid #2d3748; color: #475569;
+  width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
+  font-size: 0.75rem; flex-shrink: 0; transition: all 0.2s;
+}
+.cd-check-btn--done { background: #166534; border-color: #166534; color: #4ade80; }
+
+/* ── Main Content ────────────────────────────────────── */
+.cd-main { min-width: 0; }
+
+.cd-lesson-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.cd-lesson-header h2 { color: #f1f5f9; font-size: 1.4rem; font-weight: 700; margin: 0; }
+
+.cd-complete-btn {
+  background: #1e2535; color: #94a3b8; border: 1px solid #2d3748;
+  padding: 0.5rem 1.1rem; border-radius: 7px; cursor: pointer;
+  font-size: 0.88rem; font-weight: 600; white-space: nowrap; transition: all 0.2s;
+}
+.cd-complete-btn--done { background: #166534; border-color: #166534; color: #4ade80; }
+
+/* ── Video ───────────────────────────────────────────── */
+.cd-video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  border-radius: 12px; overflow: hidden;
+  background: #000; margin-bottom: 1.5rem;
+  border: 1px solid #1e2d45;
+}
+.cd-video-iframe, .cd-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: none; display: block;
+}
+
+.cd-lesson-desc {
+  background: #161b27; border: 1px solid #1e2d45;
+  border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;
+}
+.cd-lesson-desc h4 { color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.6rem; }
+.cd-lesson-desc p  { color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+.cd-lesson-nav { display: flex; gap: 0.75rem; justify-content: space-between; }
+.cd-nav-btn {
+  background: #161b27; color: #60a5fa; border: 1px solid #1e2d45;
+  padding: 0.6rem 1.2rem; border-radius: 7px; cursor: pointer;
+  font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+}
+.cd-nav-btn:hover { background: #1e3a5f; }
+.cd-nav-btn--next { margin-left: auto; }
+
+.cd-about { padding: 1rem 0; }
+.cd-about h2 { color: #f1f5f9; font-size: 1.5rem; margin: 0 0 1rem; }
+.cd-about p  { color: #94a3b8; line-height: 1.8; font-size: 1rem; margin: 0 0 1.5rem; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cd-body { grid-template-columns: 1fr; }
+  .cd-sidebar { position: static; }
+}
+@media (max-width: 600px) {
+  .cd-hero-content { padding: 2rem 1rem; }
+  .cd-body { padding: 1rem; }
+}

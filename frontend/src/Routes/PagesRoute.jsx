@@ -22,6 +22,10 @@ import AdminManageAbout from '../Admin/AdminManageAbout';
 import AdminViewApplications from '../Admin/AdminViewApplications';
 import AdminManageJobs from '../Admin/AdminManageJobs';
 import AdminManageHomeMain from '../Admin/AdminManageHomeMain';
+import CourseDetail from '../Pages/CourseDetail';
+import MyLearning from '../Pages/MyLearning';
+import AdminLMS from '../Admin/AdminLMS';
+import StudentAuth from '../Pages/StudentAuth';
 
 function PagesRoutes() {
   return (
@@ -31,29 +35,28 @@ function PagesRoutes() {
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/courses" element={<Courses />} />
+      <Route path="/courses/:id" element={<CourseDetail />} />
+      <Route path="/my-learning" element={<MyLearning />} />
+      <Route path="/student/auth" element={<StudentAuth />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/services/:id" element={<ServiceDetails />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/apply" element={<ApplicationForm />} />
 
-      <Route path="/services/:id" element={<ServiceDetails />} />
       <Route path="/admin/login" element={<AdminAuth />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/messages" element={<AdminViewMessages />} />
       <Route path="/admin/services" element={<AdminManageServices />} />
       <Route path="/admin/courses" element={<AdminManageCourses />} />
+      <Route path="/admin/lms" element={<AdminLMS />} />
       <Route path="/admin/portfolio" element={<AdminManagePortfolio />} />
       <Route path="/admin/blog" element={<AdminManageBlog/>} />
       <Route path="/admin/about" element={<AdminManageAbout />} />
       <Route path="/admin/applications" element={<AdminViewApplications />} />
       <Route path="/admin/jobs" element={<AdminManageJobs />} />
       <Route path="/admin/manage-home" element={<AdminManageHomeMain />} />
-
-
-
-
       <Route path="/portfolio-details/:id" element={<PortfolioDetails/>} />
-
     </Routes>
   );
 }

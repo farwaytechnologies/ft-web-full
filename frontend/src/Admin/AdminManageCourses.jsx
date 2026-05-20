@@ -12,6 +12,9 @@ function AdminManageCourses() {
     description: '',
     image: '',
     detailedDescription: '',
+    category: '',
+    level: 'Beginner',
+    duration: '',
     modules: [{ title: '', content: '' }],
   });
   const [editId, setEditId] = useState(null);
@@ -78,6 +81,9 @@ function AdminManageCourses() {
         description: '',
         image: '',
         detailedDescription: '',
+        category: '',
+        level: 'Beginner',
+        duration: '',
         modules: [{ title: '', content: '' }],
       });
       setEditId(null);
@@ -140,6 +146,25 @@ function AdminManageCourses() {
               value={formData.image}
               onChange={handleChange}
               required
+            />
+            <input
+              type="text"
+              name="category"
+              placeholder="Category (e.g. Web Development)"
+              value={formData.category || ''}
+              onChange={handleChange}
+            />
+            <select name="level" value={formData.level || 'Beginner'} onChange={handleChange}>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            <input
+              type="text"
+              name="duration"
+              placeholder="Total Duration (e.g. 6 hours)"
+              value={formData.duration || ''}
+              onChange={handleChange}
             />
             <textarea
               name="detailedDescription"

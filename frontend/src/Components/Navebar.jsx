@@ -5,6 +5,7 @@ import CoursesDropdown from './CoursesDropdown';
 import '../Styles/ComponentsStyle/Navebar.css';
 import logoDark from '../assets/logo/logo_white_trimmed.png';
 import logoLight from '../assets/logo/logo_colored_trimmed.png';
+import { useStudent } from '../context/StudentContext';
 
 function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -12,6 +13,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [admin, setAdmin] = useState(null);
+  const { student, logout: studentLogout } = useStudent();
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
 
@@ -54,6 +56,11 @@ function Navbar() {
     localStorage.removeItem('adminInfo');
     setAdmin(null);
     navigate('/admin/login');
+  };
+
+  const handleStudentLogout = () => {
+    studentLogout();
+    navigate('/');
   };
 
   const isWhite = scrolled || hovered;
@@ -107,8 +114,16 @@ function Navbar() {
             <li><Link to="/admin/dashboard">Dashboard</Link></li>
             <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
           </>
+        ) : student ? (
+          <>
+            <li><Link to="/my-learning">📚 My Learning</Link></li>
+            <li><button onClick={handleStudentLogout} className="logout-btn">Sign Out</button></li>
+          </>
         ) : (
-          <li><Link to="/admin/login">Login</Link></li>
+          <>
+            <li><Link to="/student/auth" className="student-login-btn">Student Login</Link></li>
+            <li><Link to="/admin/login">Admin</Link></li>
+          </>
         )}
       </ul>
 
@@ -127,8 +142,16 @@ function Navbar() {
               <Link to="/admin/dashboard" onClick={closeMobileMenu}>Dashboard</Link>
               <button onClick={() => { handleLogout(); closeMobileMenu(); }} className="logout-btn">Logout</button>
             </>
+          ) : student ? (
+            <>
+              <Link to="/my-learning" onClick={closeMobileMenu}>📚 My Learning</Link>
+              <button onClick={() => { handleStudentLogout(); closeMobileMenu(); }} className="logout-btn">Sign Out</button>
+            </>
           ) : (
-            <Link to="/admin/login" onClick={closeMobileMenu}>Login</Link>
+            <>
+              <Link to="/student/auth" onClick={closeMobileMenu}>Student Login</Link>
+              <Link to="/admin/login" onClick={closeMobileMenu}>Admin</Link>
+            </>
           )}
         </div>
       )}

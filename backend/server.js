@@ -32,7 +32,9 @@ app.use('/api/blogs', require('./routes/blogRoutes'));
 app.use('/api/about', require('./routes/aboutRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
 app.use('/api/jobroles', require('./routes/jobRoleRoutes'));
-app.use('/api/home', require('./routes/homeRoutes')); // ✅ Added HomeMainSection backend route
+app.use('/api/home', require('./routes/homeRoutes'));
+app.use('/api/enrollments', require('./routes/enrollmentRoutes'));
+app.use('/api/students', require('./routes/studentRoutes'));
 
 // Root Route
 app.get('/', (req, res) => {

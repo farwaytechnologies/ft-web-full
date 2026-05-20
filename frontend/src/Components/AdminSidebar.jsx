@@ -3,8 +3,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   FaHome, FaTools, FaBook, FaImages, FaBlog,
-  FaInfoCircle, FaBriefcase, FaEnvelope, FaSignOutAlt, FaUserCircle,FaCalendarCheck,
-  FaRegCalendarCheck
+  FaInfoCircle, FaBriefcase, FaEnvelope, FaSignOutAlt, FaUserCircle,
+  FaRegCalendarCheck, FaGraduationCap
 } from 'react-icons/fa';
 import '../Styles/ComponentsStyle/AdminSidebar.css';
 
@@ -32,6 +32,7 @@ const AdminSidebar = ({ admin }) => {
         <Link to="/admin/jobs"><FaRegCalendarCheck /> jobs</Link>
         <Link to="/admin/services"><FaTools /> Services</Link>
         <Link to="/admin/courses"><FaBook /> Courses</Link>
+        <Link to="/admin/lms"><FaGraduationCap /> LMS</Link>
         <Link to="/admin/portfolio"><FaImages /> Portfolio</Link>
         <Link to="/admin/blog"><FaBlog /> Blog</Link>
         <Link to="/admin/about"><FaInfoCircle /> About</Link>

@@ -1,4 +1,4 @@
-import React from 'react';
+import logoColored from '../assets/logo/logo_colored_trimmed.png';
 
 function ModernAboutSection() {
   const styles = `
@@ -322,31 +322,20 @@ function ModernAboutSection() {
 
     .visual-content {
       padding: 2rem;
-    }
-
-    .code-lines {
       display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .code-line {
-      height: 12px;
-      background: var(--primary-gradient);
-      border-radius: 6px;
-      opacity: 0.7;
-      animation: pulse 2s ease-in-out infinite;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      height: 100%;
     }
 
-    .code-line.short {
-      width: 60%;
-      animation-delay: 0.2s;
-    }
-
-    .code-line.medium {
-      width: 80%;
-      animation-delay: 0.4s;
+    .visual-logo {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 24px rgba(102, 126, 234, 0.5));
+      animation: pulse 3s ease-in-out infinite;
     }
 
     .glow-effect {
@@ -645,13 +634,7 @@ function ModernAboutSection() {
                 </div>
                 <div className="main-visual">
                   <div className="visual-content">
-                    <div className="code-lines">
-                      <div className="code-line"></div>
-                      <div className="code-line short"></div>
-                      <div className="code-line"></div>
-                      <div className="code-line medium"></div>
-                      <div className="code-line"></div>
-                    </div>
+                    <img src={logoColored} alt="Farway Technologies" className="visual-logo" />
                   </div>
                 </div>
                 <div className="glow-effect"></div>

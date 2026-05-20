@@ -1,0 +1,151 @@
+.admin-dashboard-main:has(.alms-wrapper) {
+  background-color: #0f1117 !important;
+  padding: 2rem !important;
+}
+
+.alms-wrapper { max-width: 1300px; margin: 0 auto; }
+.alms-wrapper p, .alms-wrapper h1, .alms-wrapper h2, .alms-wrapper h3 { color: inherit; }
+
+/* ── Toast ───────────────────────────────────────────── */
+.alms-toast {
+  position: fixed; top: 1.5rem; right: 1.5rem; z-index: 9999;
+  padding: 0.85rem 1.4rem; border-radius: 8px; font-size: 0.95rem; font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5); animation: alms-in 0.3s ease;
+}
+.alms-toast--success { background: #16a34a; color: #fff; }
+.alms-toast--error   { background: #dc2626; color: #fff; }
+@keyframes alms-in { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── Header ──────────────────────────────────────────── */
+.alms-header { margin-bottom: 1.75rem; }
+.alms-title  { font-size: 1.75rem; font-weight: 700; color: #f1f5f9; margin: 0; }
+.alms-subtitle { color: #64748b; font-size: 0.9rem; margin: 0.2rem 0 0; }
+
+/* ── Layout ──────────────────────────────────────────── */
+.alms-layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+
+/* ── Course List ─────────────────────────────────────── */
+.alms-course-list {
+  background: #161b27; border: 1px solid #1e2d45; border-radius: 12px; overflow: hidden;
+  max-height: 70vh; overflow-y: auto;
+}
+.alms-course-list-header {
+  padding: 0.85rem 1rem; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: #3b82f6;
+  border-bottom: 1px solid #1e2d45;
+}
+.alms-course-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 1rem; cursor: pointer; border-bottom: 1px solid #1a2236;
+  transition: background 0.15s;
+}
+.alms-course-item:hover { background: #1a2236; }
+.alms-course-item--active { background: #1e3a5f !important; }
+.alms-course-thumb { width: 44px; height: 36px; object-fit: cover; border-radius: 5px; flex-shrink: 0; }
+.alms-course-item-title { display: block; color: #cbd5e1; font-size: 0.88rem; font-weight: 500; }
+.alms-course-item-meta  { display: block; color: #475569; font-size: 0.75rem; }
+
+/* ── Panel ───────────────────────────────────────────── */
+.alms-panel { background: #161b27; border: 1px solid #1e2d45; border-radius: 12px; overflow: hidden; }
+.alms-empty { padding: 4rem; text-align: center; color: #475569; font-size: 0.95rem; }
+.alms-empty-text { color: #475569; font-size: 0.9rem; padding: 1.5rem 0; }
+
+.alms-panel-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem; border-bottom: 1px solid #1e2d45; flex-wrap: wrap; gap: 0.75rem;
+}
+.alms-panel-header h3 { color: #f1f5f9; font-size: 1rem; font-weight: 700; margin: 0; }
+
+.alms-tabs { display: flex; gap: 0.5rem; }
+.alms-tab {
+  background: #1e2535; color: #64748b; border: 1px solid #2d3748;
+  padding: 0.4rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+  transition: all 0.2s;
+}
+.alms-tab--active { background: #1e3a5f; color: #60a5fa; border-color: #3b82f6; }
+
+/* ── Lesson Form ─────────────────────────────────────── */
+.alms-lessons-tab, .alms-enrollments-tab { padding: 1.5rem; }
+.alms-lesson-form {
+  background: #0f1117; border: 1px solid #1e2d45; border-radius: 10px;
+  padding: 1.25rem; margin-bottom: 1.5rem;
+}
+.alms-lesson-form h4 { color: #94a3b8; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; }
+.alms-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.alms-field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+.alms-field label { font-size: 0.82rem; font-weight: 600; color: #64748b; }
+.alms-field input, .alms-field textarea {
+  padding: 0.65rem 0.85rem; background: #161b27; border: 1px solid #2d3748;
+  border-radius: 7px; color: #e2e8f0; font-size: 0.9rem; font-family: inherit; resize: vertical;
+}
+.alms-field input::placeholder, .alms-field textarea::placeholder { color: #475569; }
+.alms-field input:focus, .alms-field textarea:focus { outline: none; border-color: #3b82f6; }
+
+.alms-form-actions { display: flex; gap: 0.75rem; justify-content: flex-end; }
+.alms-btn-primary {
+  background: #3b82f6; color: #fff; border: none;
+  padding: 0.6rem 1.3rem; border-radius: 7px; font-weight: 700; cursor: pointer;
+}
+.alms-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.alms-btn-secondary {
+  background: #1e2535; color: #94a3b8; border: 1px solid #2d3748;
+  padding: 0.6rem 1.1rem; border-radius: 7px; font-weight: 600; cursor: pointer;
+}
+
+/* ── Lesson List ─────────────────────────────────────── */
+.alms-lesson-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.alms-lesson-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: #0f1117; border: 1px solid #1e2d45; border-radius: 8px; padding: 0.75rem 1rem;
+}
+.alms-lesson-num {
+  width: 28px; height: 28px; border-radius: 50%; background: #1e2d45;
+  color: #94a3b8; font-size: 0.8rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.alms-lesson-row-info { flex: 1; min-width: 0; }
+.alms-lesson-row-title { display: block; color: #cbd5e1; font-size: 0.9rem; font-weight: 500; }
+.alms-lesson-row-meta  { display: block; color: #475569; font-size: 0.78rem; margin-top: 0.1rem; }
+.alms-lesson-row-actions { display: flex; gap: 0.5rem; }
+.alms-btn-edit {
+  background: #1e3a5f; color: #60a5fa; border: none;
+  padding: 0.35rem 0.75rem; border-radius: 5px; cursor: pointer; font-size: 0.82rem; font-weight: 600;
+}
+.alms-btn-delete {
+  background: transparent; color: #f87171; border: 1px solid #7f1d1d;
+  padding: 0.35rem 0.75rem; border-radius: 5px; cursor: pointer; font-size: 0.82rem; font-weight: 600;
+}
+.alms-btn-delete:hover { background: #2d1515; }
+
+/* ── Enrollments Table ───────────────────────────────── */
+.alms-enroll-table { width: 100%; border-collapse: collapse; }
+.alms-enroll-table th {
+  padding: 0.75rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; color: #93c5fd;
+  border-bottom: 1px solid #1e2d45;
+}
+.alms-enroll-table td {
+  padding: 0.75rem 1rem; color: #cbd5e1; font-size: 0.88rem;
+  border-bottom: 1px solid #1a2236;
+}
+.alms-enroll-table tbody tr:hover td { background: #1a2236; }
+.alms-prog-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.alms-prog-track { flex: 1; height: 5px; background: #1e2d45; border-radius: 3px; overflow: hidden; }
+.alms-prog-fill  { height: 100%; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 3px; }
+.alms-prog-wrap span { color: #64748b; font-size: 0.78rem; white-space: nowrap; }
+
+/* ── Summary ─────────────────────────────────────────── */
+.alms-summary {
+  background: #161b27; border: 1px solid #1e2d45; border-radius: 12px; padding: 1.5rem;
+}
+.alms-summary-title { color: #f1f5f9; font-size: 1rem; font-weight: 700; margin: 0 0 1.25rem; }
+.alms-summary-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+.alms-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.alms-stat-num   { font-size: 2rem; font-weight: 800; color: #60a5fa; }
+.alms-stat-label { font-size: 0.82rem; color: #64748b; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .alms-layout { grid-template-columns: 1fr; }
+  .alms-form-row { grid-template-columns: 1fr; }
+}
